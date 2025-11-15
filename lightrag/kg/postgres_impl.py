@@ -1370,6 +1370,19 @@ class PostgreSQLDB:
 
         embedding_dim = int(os.environ.get("EMBEDDING_DIM", 1024))
 
+        # pgvector HNSW index has a limit of 2000 dimensions
+        if embedding_dim > 2000:
+            error_msg = (
+                f"HNSW index does not support embedding dimensions greater than 2000. "
+                f"Current EMBEDDING_DIM={embedding_dim}. "
+                f"Please either:\n"
+                f"  1. Change POSTGRES_VECTOR_INDEX_TYPE to 'IVFFLAT' in your .env file (recommended), or\n"
+                f"  2. Use an embedding model with ≤2000 dimensions\n"
+                f"IVFFlat supports up to 16,000 dimensions and works well for most use cases."
+            )
+            logger.error(error_msg)
+            raise ValueError(error_msg)
+
         for k in vdb_tables:
             vector_index_name = f"idx_{k.lower()}_hnsw_cosine"
             check_vector_index_sql = f"""
