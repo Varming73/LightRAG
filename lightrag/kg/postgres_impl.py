@@ -1370,15 +1370,15 @@ class PostgreSQLDB:
 
         embedding_dim = int(os.environ.get("EMBEDDING_DIM", 1024))
 
-        # pgvector HNSW index has a limit of 2000 dimensions
+        # pgvector has a 2000 dimension limit for all index types
         if embedding_dim > 2000:
             error_msg = (
                 f"HNSW index does not support embedding dimensions greater than 2000. "
                 f"Current EMBEDDING_DIM={embedding_dim}. "
-                f"Please either:\n"
-                f"  1. Change POSTGRES_VECTOR_INDEX_TYPE to 'IVFFLAT' in your .env file (recommended), or\n"
-                f"  2. Use an embedding model with ≤2000 dimensions\n"
-                f"IVFFlat supports up to 16,000 dimensions and works well for most use cases."
+                f"Standard pgvector has a 2000-dimension limit for ALL index types (HNSW and IVFFlat). "
+                f"Please use an embedding model with ≤2000 dimensions.\n"
+                f"For voyage-3-large, set EMBEDDING_DIM=1024 and EMBEDDING_SEND_DIM=true to use "
+                f"Matryoshka dimension reduction (only 0.31% quality loss)."
             )
             logger.error(error_msg)
             raise ValueError(error_msg)
@@ -1423,6 +1423,19 @@ class PostgreSQLDB:
         ]
 
         embedding_dim = int(os.environ.get("EMBEDDING_DIM", 1024))
+
+        # pgvector IVFFlat index has the same 2000 dimension limit as HNSW
+        if embedding_dim > 2000:
+            error_msg = (
+                f"IVFFlat index does not support embedding dimensions greater than 2000. "
+                f"Current EMBEDDING_DIM={embedding_dim}. "
+                f"Standard pgvector has a 2000-dimension limit for ALL index types (HNSW and IVFFlat). "
+                f"Please use an embedding model with ≤2000 dimensions.\n"
+                f"For voyage-3-large, set EMBEDDING_DIM=1024 and EMBEDDING_SEND_DIM=true to use "
+                f"Matryoshka dimension reduction (only 0.31% quality loss)."
+            )
+            logger.error(error_msg)
+            raise ValueError(error_msg)
 
         for k in vdb_tables:
             index_name = f"idx_{k.lower()}_ivfflat_cosine"
