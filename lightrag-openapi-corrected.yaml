@@ -1,0 +1,320 @@
+openapi: 3.1.0
+info:
+  title: LightRAG Knowledge Base API
+  description: Search and query documents using LightRAG's advanced retrieval system
+  version: 1.0.0
+servers:
+  - url: http://localhost:8020
+    description: Local LightRAG server
+
+paths:
+  /query:
+    post:
+      operationId: queryLightRAG
+      summary: Query the knowledge base (non-streaming)
+      description: Search for information across indexed documents using various retrieval modes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  minLength: 3
+                  description: The search query text
+                mode:
+                  type: string
+                  enum: [local, global, hybrid, naive, mix, bypass]
+                  default: mix
+                  description: |
+                    Query mode:
+                    - local: Entity-focused retrieval with direct relationships
+                    - global: Pattern analysis across knowledge graph
+                    - hybrid: Combined local and global strategies
+                    - naive: Vector similarity search only
+                    - mix: Integrated knowledge graph + vector retrieval (recommended)
+                    - bypass: Direct LLM query without knowledge retrieval
+                only_need_context:
+                  type: boolean
+                  description: Return only context without generated response
+                only_need_prompt:
+                  type: boolean
+                  description: Return only the generated prompt without producing a response
+                response_type:
+                  type: string
+                  description: Defines response format (e.g., 'Multiple Paragraphs', 'Bullet Points')
+                top_k:
+                  type: integer
+                  minimum: 1
+                  description: Number of top entities (local mode) or relationships (global mode) to retrieve
+                chunk_top_k:
+                  type: integer
+                  minimum: 1
+                  description: Number of text chunks to retrieve from vector search
+                max_entity_tokens:
+                  type: integer
+                  minimum: 1
+                  description: Maximum tokens allocated for entity context
+                max_relation_tokens:
+                  type: integer
+                  minimum: 1
+                  description: Maximum tokens allocated for relationship context
+                max_total_tokens:
+                  type: integer
+                  minimum: 1
+                  description: Maximum total tokens budget for entire query context
+                hl_keywords:
+                  type: array
+                  items:
+                    type: string
+                  description: High-level keywords to prioritize in retrieval
+                ll_keywords:
+                  type: array
+                  items:
+                    type: string
+                  description: Low-level keywords to refine retrieval focus
+                conversation_history:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                      content:
+                        type: string
+                  description: Past conversation history for multi-turn conversations
+                user_prompt:
+                  type: string
+                  description: Custom user prompt to override default template
+                enable_rerank:
+                  type: boolean
+                  description: Enable reranking for retrieved text chunks
+                include_references:
+                  type: boolean
+                  default: true
+                  description: Include reference list in responses
+                include_chunk_content:
+                  type: boolean
+                  default: false
+                  description: Include actual chunk text in references (for debugging)
+              required:
+                - query
+      responses:
+        '200':
+          description: Successful query response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: Generated response from RAG system
+                  references:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        reference_id:
+                          type: string
+                        file_path:
+                          type: string
+                        content:
+                          type: array
+                          items:
+                            type: string
+                          description: Chunk contents (only when include_chunk_content=true)
+                    description: Source citations (only when include_references=true)
+        '400':
+          description: Invalid input parameters
+        '500':
+          description: Internal server error
+
+  /query/stream:
+    post:
+      operationId: queryLightRAGStream
+      summary: Query with streaming response
+      description: Query endpoint supporting both streaming and complete responses in NDJSON format
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/paths/~1query/post/requestBody/content/application~1json/schema'
+      responses:
+        '200':
+          description: Streaming NDJSON response
+          content:
+            application/x-ndjson:
+              schema:
+                type: string
+                format: ndjson
+
+  /query/data:
+    post:
+      operationId: queryLightRAGData
+      summary: Get raw retrieval data without LLM generation
+      description: Returns structured data (entities, relationships, chunks) for analysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/paths/~1query/post/requestBody/content/application~1json/schema'
+      responses:
+        '200':
+          description: Structured retrieval data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      entities:
+                        type: array
+                        items:
+                          type: object
+                      relationships:
+                        type: array
+                        items:
+                          type: object
+                      chunks:
+                        type: array
+                        items:
+                          type: object
+                      references:
+                        type: array
+                        items:
+                          type: object
+                  metadata:
+                    type: object
+
+  /documents/upload:
+    post:
+      operationId: uploadDocument
+      summary: Upload and index a document
+      description: Upload a file to be indexed in the knowledge base
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Document file to upload and index
+              required:
+                - file
+      responses:
+        '200':
+          description: Upload successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [success, duplicated]
+                  message:
+                    type: string
+                  track_id:
+                    type: string
+                    description: ID to track upload processing status
+        '400':
+          description: Unsupported file type or invalid filename
+        '500':
+          description: Upload failed
+
+  /documents/delete_document:
+    delete:
+      operationId: deleteDocuments
+      summary: Delete documents from knowledge base
+      description: Delete one or more documents and optionally their files
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doc_ids:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of document IDs to delete
+                delete_file:
+                  type: boolean
+                  default: false
+                  description: Whether to delete the physical file from disk
+                delete_llm_cache:
+                  type: boolean
+                  default: false
+                  description: Whether to delete cached LLM extraction results
+              required:
+                - doc_ids
+      responses:
+        '200':
+          description: Deletion initiated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [deletion_started, busy]
+                  message:
+                    type: string
+                  doc_id:
+                    type: string
+
+  /documents:
+    get:
+      operationId: listDocuments
+      summary: List all documents
+      description: Get list of documents filtered by status
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [pending, processing, preprocessed, processed, indexed, failed, all]
+          description: Filter documents by status
+      responses:
+        '200':
+          description: List of documents
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  documents:
+                    type: array
+                    items:
+                      type: object
+
+  /documents/track_status/{track_id}:
+    get:
+      operationId: trackUploadStatus
+      summary: Track upload processing status
+      description: Monitor the status of a specific upload using its track_id
+      parameters:
+        - name: track_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Upload status information
