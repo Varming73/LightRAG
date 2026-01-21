@@ -4,7 +4,7 @@
   <img src="./assets/logo.png" width="120" height="120" alt="LightRAG Logo" style="border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);">
 </div>
 
-# 🚀 LightRAG: Simple and Fast Retrieval-Augmented Generation
+# 🚀 LightRAG: 简单且快速的检索增强生成（RAG）框架
 
 <div align="center">
     <a href="https://trendshift.io/repositories/13043" target="_blank"><img src="https://trendshift.io/api/badge/repositories/13043" alt="HKUDS%2FLightRAG | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
@@ -51,30 +51,36 @@
 
 ---
 
-## 🎉 新闻
+<div align="center">
+  <a href="https://litewrite.ai" target="_blank">
+    <img src="./assets/LiteWrite.png" width="56" height="56" alt="LiteWrite" style="vertical-align: middle; border-radius: 12px;">
+    <span style="font-size: 18px; font-weight: bold; margin-left: 10px;">体验 LiteWrite — AI 原生 LaTeX 编辑平台</span>
+  </a>
+  <br>
+  <a href="https://litewrite.ai"><img src="https://img.shields.io/badge/🚀%20LiteWrite-AI%20原生%20LaTeX%20编辑器-ff6b6b?style=for-the-badge&logoColor=white&labelColor=1a1a2e"></a>
+</div>
 
-- [x] [2025.11.05]🎯📢添加**基于RAGAS的**评估框架和**Langfuse**可观测性支持。
-- [x] [2025.10.22]🎯📢消除处理**大规模数据集**的瓶颈。
-- [x] [2025.09.15]🎯📢显著提升**小型LLM**（如Qwen3-30B-A3B）的知识图谱提取准确性。
-- [x] [2025.08.29]🎯📢现已支持**Reranker**，显著提升混合查询性能。
-- [x] [2025.08.04]🎯📢支持**文档删除**并重新生成知识图谱以确保查询性能。
-- [x] [2025.06.16]🎯📢我们的团队发布了[RAG-Anything](https://github.com/HKUDS/RAG-Anything)，一个用于无缝处理文本、图像、表格和方程式的全功能多模态 RAG 系统。
-- [X] [2025.06.05]🎯📢LightRAG现已集成[RAG-Anything](https://github.com/HKUDS/RAG-Anything)，支持全面的多模态文档解析与RAG能力（PDF、图片、Office文档、表格、公式等）。详见下方[多模态处理模块](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#多模态文档处理rag-anything集成)。
-- [X] [2025.03.18]🎯📢LightRAG现已支持引文功能。
-- [X] [2025.02.05]🎯📢我们团队发布了[VideoRAG](https://github.com/HKUDS/VideoRAG)，用于理解超长上下文视频。
-- [X] [2025.01.13]🎯📢我们团队发布了[MiniRAG](https://github.com/HKUDS/MiniRAG)，使用小型模型简化RAG。
-- [X] [2025.01.06]🎯📢现在您可以[使用PostgreSQL进行存储](#using-postgresql-for-storage)。
-- [X] [2024.11.25]🎯📢LightRAG现在支持无缝集成[自定义知识图谱](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#insert-custom-kg)，使用户能够用自己的领域专业知识增强系统。
-- [X] [2024.11.19]🎯📢LightRAG的综合指南现已在[LearnOpenCV](https://learnopencv.com/lightrag)上发布。非常感谢博客作者。
-- [X] [2024.11.11]🎯📢LightRAG现在支持[通过实体名称删除实体](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#delete)。
-- [X] [2024.11.09]🎯📢推出[LightRAG Gui](https://lightrag-gui.streamlit.app)，允许您插入、查询、可视化和下载LightRAG知识。
-- [X] [2024.11.04]🎯📢现在您可以[使用Neo4J进行存储](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#using-neo4j-for-storage)。
-- [X] [2024.10.29]🎯📢LightRAG现在通过`textract`支持多种文件类型，包括PDF、DOC、PPT和CSV。
-- [X] [2024.10.20]🎯📢我们为LightRAG添加了一个新功能：图形可视化。
-- [X] [2024.10.18]🎯📢我们添加了[LightRAG介绍视频](https://youtu.be/oageL-1I0GE)的链接。感谢作者！
-- [X] [2024.10.17]🎯📢我们创建了一个[Discord频道](https://discord.gg/yF2MmDJyGJ)！欢迎加入分享和讨论！🎉🎉
-- [X] [2024.10.16]🎯📢LightRAG现在支持[Ollama模型](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#quick-start)！
-- [X] [2024.10.15]🎯📢LightRAG现在支持[Hugging Face模型](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#quick-start)！
+---
+
+## 🎉 新闻
+- [2025.11]🎯[新功能]: 集成了 **RAGAS 评估**和 **Langfuse 追踪**。更新了 API 以在查询结果中返回召回上下文，支持上下文精度指标。
+- [2025.10]🎯[可扩展性增强]: 消除了处理瓶颈，以高效支持**大规模数据集**。
+- [2025.09]🎯[新功能]: 显著提升了 Qwen3-30B-A3B 等**开源 LLM** 的知识图谱提取准确性。
+- [2025.08]🎯[新功能]: 现已支持 **Reranker**，显著提升混合查询性能（已设为默认查询模式）。
+- [2025.08]🎯[新功能]: 添加了**文档删除**功能，并支持自动重新生成知识图谱，以确保最佳查询性能。
+- [2025.06]🎯[新发布]: 我们的团队发布了 [RAG-Anything](https://github.com/HKUDS/RAG-Anything) —— 一个用于无缝处理文本、图像、表格和方程式的**全功能多模态 RAG** 系统。
+- [2025.06]🎯[新功能]: LightRAG 现已集成 [RAG-Anything](https://github.com/HKUDS/RAG-Anything)，支持全面的多模态数据处理，实现对 PDF、图像、Office 文档、表格和公式等多种格式的无缝文档解析和 RAG 能力。详见[多模态文档处理部分](https://github.com/HKUDS/LightRAG/?tab=readme-ov-file#multimodal-document-processing-rag-anything-integration)。
+- [2025.03]🎯[新功能]: LightRAG 现已支持引用功能，实现了准确的源归因和增强的文档可追溯性。
+- [2025.02]🎯[新功能]: 现在您可以使用 MongoDB 作为一体化存储解决方案，实现统一的数据管理。
+- [2025.02]🎯[新发布]: 我们的团队发布了 [VideoRAG](https://github.com/HKUDS/VideoRAG) —— 一个用于理解超长上下文视频的 RAG 系统。
+- [2025.01]🎯[新发布]: 我们的团队发布了 [MiniRAG](https://github.com/HKUDS/MiniRAG)，使用小型模型简化 RAG。
+- [2025.01]🎯现在您可以使用 PostgreSQL 作为一体化存储解决方案进行数据管理。
+- [2024.11]🎯[新资源]: LightRAG 的综合指南现已在 [LearnOpenCV](https://learnopencv.com/lightrag) 上发布 —— 探索深入的教程和最佳实践。非常感谢博客作者的杰出贡献！
+- [2024.11]🎯[新功能]: 推出 LightRAG WebUI —— 一个允许您通过直观的 Web 界面插入、查询和可视化 LightRAG 知识的仪表板。
+- [2024.11]🎯[新功能]: 现在您可以[使用 Neo4J 进行存储](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#using-neo4j-for-storage) —— 开启图数据库支持。
+- [2024.10]🎯[新功能]: 我们添加了 [LightRAG 介绍视频](https://youtu.be/oageL-1I0GE) 的链接 —— 演示 LightRAG 的各项功能。感谢作者的杰出贡献！
+- [2024.10]🎯[新频道]: 我们创建了一个 [Discord 频道](https://discord.gg/yF2MmDJyGJ)！💬 欢迎加入我们的社区进行分享、讨论和协作！ 🎉🎉
+- [2024.10]🎯[新功能]: LightRAG 现在支持 [Ollama 模型](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#quick-start)！
 
 <details>
   <summary style="font-size: 1.4em; font-weight: bold; cursor: pointer; display: list-item;">
@@ -93,7 +99,9 @@
 > **💡 使用 uv 进行包管理**: 本项目使用 [uv](https://docs.astral.sh/uv/) 进行快速可靠的 Python 包管理。
 > 首先安装 uv: `curl -LsSf https://astral.sh/uv/install.sh | sh` (Unix/macOS) 或 `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"` (Windows)
 >
-> **注意**: 如果您更喜欢使用 pip 也可以，但我们推荐使用 uv 以获得更好的性能和更可靠的依赖管理。
+> **注意**：如果您愿意，也可以使用 pip，但为了获得更好的性能 and 更可靠的依赖管理，建议使用 uv。
+>
+> **📦 离线部署**: 对于离线或隔离环境，请参阅[离线部署指南](./docs/OfflineDeployment.md)，了解预安装所有依赖项和缓存文件的说明。
 
 ### 安装LightRAG服务器
 
@@ -107,8 +115,15 @@ uv pip install "lightrag-hku[api]"
 # 或使用 pip
 # pip install "lightrag-hku[api]"
 
-cp env.example .env  # 使用你的LLM和Embedding模型访问参数更新.env文件
+# 构建前端代码
+cd lightrag_webui
+bun install --frozen-lockfile
+bun run build
+cd ..
 
+# 配置 env 文件
+cp env.example .env  # 使用你的LLM和Embedding模型访问参数更新.env文件
+# 启动API-WebUI服务
 lightrag-server
 ```
 
@@ -124,12 +139,10 @@ uv sync --extra api
 source .venv/bin/activate  # 激活虚拟环境 (Linux/macOS)
 # Windows 系统: .venv\Scripts\activate
 
-# 或使用 pip 和虚拟环境
+### 或使用 pip 和虚拟环境
 # python -m venv .venv
-# source .venv/bin/activate  # Windows: .venv\Scripts\activate
+### source .venv/bin/activate  # Windows: .venv\Scripts\activate
 # pip install -e ".[api]"
-
-cp env.example .env  # 使用你的LLM和Embedding模型访问参数更新.env文件
 
 # 构建前端代码
 cd lightrag_webui
@@ -137,6 +150,9 @@ bun install --frozen-lockfile
 bun run build
 cd ..
 
+# 配置 env 文件
+cp env.example .env  # 使用你的LLM和Embedding模型访问参数更新.env文件
+# 启动API-WebUI服务
 lightrag-server
 ```
 
@@ -222,6 +238,10 @@ python examples/lightrag_openai_demo.py
 
 > ⚠️ **如果您希望将LightRAG集成到您的项目中，建议您使用LightRAG Server提供的REST API**。LightRAG Core通常用于嵌入式应用，或供希望进行研究与评估的学者使用。
 
+### ⚠️ 重要：初始化要求
+
+LightRAG 在使用前需要显式初始化。 创建 LightRAG 实例后，您必须调用 await rag.initialize_storages()，否则将出现错误。
+
 ### 一个简单程序
 
 以下Python代码片段演示了如何初始化LightRAG、插入文本并进行查询：
@@ -231,7 +251,6 @@ import os
 import asyncio
 from lightrag import LightRAG, QueryParam
 from lightrag.llm.openai import gpt_4o_mini_complete, gpt_4o_complete, openai_embed
-from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.utils import setup_logger
 
 setup_logger("lightrag", level="INFO")
@@ -246,24 +265,23 @@ async def initialize_rag():
         embedding_func=openai_embed,
         llm_model_func=gpt_4o_mini_complete,
     )
-    await rag.initialize_storages()
-    await initialize_pipeline_status()
+    # IMPORTANT: Both initialization calls are required!
+    await rag.initialize_storages()  # Initialize storage backends
     return rag
 
 async def main():
     try:
         # 初始化RAG实例
         rag = await initialize_rag()
-        # 插入文本
-        await rag.insert("Your text")
+        await rag.ainsert("Your text")
 
         # 执行混合检索
         mode = "hybrid"
         print(
-            await rag.query(
-                "这个故事的主要主题是什么？",
-                param=QueryParam(mode=mode)
-            )
+          await rag.aquery(
+              "What are the top themes in this story?",
+              param=QueryParam(mode=mode)
+          )
         )
 
     except Exception as e:
@@ -277,6 +295,7 @@ if __name__ == "__main__":
 ```
 
 重要说明：
+
 - 运行脚本前请先导出你的OPENAI_API_KEY环境变量。
 - 该程序使用LightRAG的默认存储设置，所有数据将持久化在WORKING_DIR/rag_storage目录下。
 - 该示例仅展示了初始化LightRAG对象的最简单方式：注入embedding和LLM函数，并在创建LightRAG对象后初始化存储和管道状态。
@@ -289,8 +308,9 @@ if __name__ == "__main__":
 <summary> 参数 </summary>
 
 | **参数** | **类型** | **说明** | **默认值** |
-|--------------|----------|-----------------|-------------|
+| -------------- | ---------- | ----------------- | ------------- |
 | **working_dir** | `str` | 存储缓存的目录 | `lightrag_cache+timestamp` |
+| **workspace** | str | 用于不同 LightRAG 实例之间数据隔离的工作区名称 | |
 | **kv_storage** | `str` | Storage type for documents and text chunks. Supported types: `JsonKVStorage`,`PGKVStorage`,`RedisKVStorage`,`MongoKVStorage` | `JsonKVStorage` |
 | **vector_storage** | `str` | Storage type for embedding vectors. Supported types: `NanoVectorDBStorage`,`PGVectorStorage`,`MilvusVectorDBStorage`,`ChromaVectorDBStorage`,`FaissVectorDBStorage`,`MongoVectorDBStorage`,`QdrantVectorDBStorage` | `NanoVectorDBStorage` |
 | **graph_storage** | `str` | Storage type for graph edges and nodes. Supported types: `NetworkXStorage`,`Neo4JStorage`,`PGGraphStorage`,`AGEStorage` | `NetworkXStorage` |
@@ -365,18 +385,13 @@ class QueryParam:
     max_total_tokens: int = int(os.getenv("MAX_TOTAL_TOKENS", "30000"))
     """Maximum total tokens budget for the entire query context (entities + relations + chunks + system prompt)."""
 
-    hl_keywords: list[str] = field(default_factory=list)
-    """List of high-level keywords to prioritize in retrieval."""
-
-    ll_keywords: list[str] = field(default_factory=list)
-    """List of low-level keywords to refine retrieval focus."""
-
-    # History mesages is only send to LLM for context, not used for retrieval
+    # History messages are only sent to LLM for context, not used for retrieval
     conversation_history: list[dict[str, str]] = field(default_factory=list)
     """Stores past conversation history to maintain context.
     Format: [{"role": "user/assistant", "content": "message"}].
     """
 
+    # Deprecated (ids filter lead to potential hallucination effects)
     ids: list[str] | None = None
     """List of ids to filter the results."""
 
@@ -410,6 +425,11 @@ LightRAG 需要利用LLM和Embeding模型来完成文档索引和知识库查询
 * LightRAG还支持类OpenAI的聊天/嵌入API：
 
 ```python
+import os
+import numpy as np
+from lightrag.utils import wrap_embedding_func_with_attrs
+from lightrag.llm.openai import openai_complete_if_cache, openai_embed
+
 async def llm_model_func(
     prompt, system_prompt=None, history_messages=[], keyword_extraction=False, **kwargs
 ) -> str:
@@ -423,8 +443,9 @@ async def llm_model_func(
         **kwargs
     )
 
+@wrap_embedding_func_with_attrs(embedding_dim=4096, max_token_size=8192, model_name="solar-embedding-1-large-query")
 async def embedding_func(texts: list[str]) -> np.ndarray:
-    return await openai_embed(
+    return await openai_embed.func(
         texts,
         model="solar-embedding-1-large-query",
         api_key=os.getenv("UPSTAGE_API_KEY"),
@@ -435,40 +456,48 @@ async def initialize_rag():
     rag = LightRAG(
         working_dir=WORKING_DIR,
         llm_model_func=llm_model_func,
-        embedding_func=EmbeddingFunc(
-            embedding_dim=4096,
-            func=embedding_func
-        )
+        embedding_func=embedding_func  # 直接传入装饰后的函数
     )
 
     await rag.initialize_storages()
-    await initialize_pipeline_status()
-
     return rag
 ```
+
+> **关于嵌入函数封装的重要说明：**
+>
+> `EmbeddingFunc` 不能嵌套封装。已经被 `@wrap_embedding_func_with_attrs` 装饰过的嵌入函数（如 `openai_embed`、`ollama_embed` 等）不能再次使用 `EmbeddingFunc()` 封装。这就是为什么在创建自定义嵌入函数时，我们调用 `xxx_embed.func`（底层未封装的函数）而不是直接调用 `xxx_embed`。
 
 </details>
 
 <details>
-<summary> <b>使用Hugging Face模型</b> </summary>
+<summary> <b>使用 Hugging Face 模型</b> </summary>
 
-* 如果您想使用Hugging Face模型，只需要按如下方式设置LightRAG：
+* 如果您想使用 Hugging Face 模型，只需要按如下方式设置 LightRAG：
 
-参见`lightrag_hf_demo.py`
+参见 `lightrag_hf_demo.py`
 
 ```python
-# 使用Hugging Face模型初始化LightRAG
+from functools import partial
+from transformers import AutoTokenizer, AutoModel
+
+# Pre-load tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+embed_model = AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+
+# 使用 Hugging Face 模型初始化 LightRAG
 rag = LightRAG(
     working_dir=WORKING_DIR,
-    llm_model_func=hf_model_complete,  # 使用Hugging Face模型进行文本生成
-    llm_model_name='meta-llama/Llama-3.1-8B-Instruct',  # Hugging Face的模型名称
-    # 使用Hugging Face嵌入函数
+    llm_model_func=hf_model_complete,  # 使用 Hugging Face 模型进行文本生成
+    llm_model_name='meta-llama/Llama-3.1-8B-Instruct',  # Hugging Face 的模型名称
+    # 使用 Hugging Face 嵌入函数
     embedding_func=EmbeddingFunc(
         embedding_dim=384,
-        func=lambda texts: hf_embed(
-            texts,
-            tokenizer=AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2"),
-            embed_model=AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+        max_token_size=2048,
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        func=partial(
+            hf_embed.func,  # 使用 .func 访问底层未封装的函数
+            tokenizer=tokenizer,
+            embed_model=embed_model
         )
     ),
 )
@@ -478,32 +507,36 @@ rag = LightRAG(
 
 <details>
 <summary> <b>使用Ollama模型</b> </summary>
+
+**综述**
+
 如果您想使用Ollama模型，您需要拉取计划使用的模型和嵌入模型，例如`nomic-embed-text`。
 
 然后您只需要按如下方式设置LightRAG：
 
 ```python
-# 使用Ollama模型初始化LightRAG
+import numpy as np
+from lightrag.utils import wrap_embedding_func_with_attrs
+from lightrag.llm.ollama import ollama_model_complete, ollama_embed
+
+@wrap_embedding_func_with_attrs(embedding_dim=768, max_token_size=8192, model_name="nomic-embed-text")
+async def embedding_func(texts: list[str]) -> np.ndarray:
+    return await ollama_embed.func(texts, embed_model="nomic-embed-text")
+
+# Initialize LightRAG with Ollama model
 rag = LightRAG(
     working_dir=WORKING_DIR,
-    llm_model_func=ollama_model_complete,  # 使用Ollama模型进行文本生成
-    llm_model_name='your_model_name', # 您的模型名称
-    # 使用Ollama嵌入函数
-    embedding_func=EmbeddingFunc(
-        embedding_dim=768,
-        func=lambda texts: ollama_embed(
-            texts,
-            embed_model="nomic-embed-text"
-        )
-    ),
+    llm_model_func=ollama_model_complete,  # Use Ollama model for text generation
+    llm_model_name='your_model_name', # Your model name
+    embedding_func=embedding_func,  # Pass the decorated function directly
 )
 ```
 
 * **增加上下文大小**
 
-为了使LightRAG正常工作，上下文应至少为32k令牌。默认情况下，Ollama模型的上下文大小为8k。您可以通过以下两种方式之一实现这一点：
+为了使 LightRAG 正常工作，上下文大小至少需要 32k tokens。默认情况下，Ollama 模型的上下文大小为 8k。您可以通过以下两种方式之一来实现：
 
-* **在Modelfile中增加`num_ctx`参数**
+* **在 Modelfile 中增加 `num_ctx` 参数**
 
 1. 拉取模型：
 
@@ -517,7 +550,7 @@ ollama pull qwen2
 ollama show --modelfile qwen2 > Modelfile
 ```
 
-3. 编辑Modelfile，添加以下行：
+3. 编辑 Modelfile，添加以下行：
 
 ```bash
 PARAMETER num_ctx 32768
@@ -529,72 +562,77 @@ PARAMETER num_ctx 32768
 ollama create -f Modelfile qwen2m
 ```
 
-* **通过Ollama API设置`num_ctx`**
+* **通过 Ollama API 设置 `num_ctx`**
 
-您可以使用`llm_model_kwargs`参数配置ollama：
+您可以使用 `llm_model_kwargs` 参数来配置 Ollama：
 
 ```python
+import numpy as np
+from lightrag.utils import wrap_embedding_func_with_attrs
+from lightrag.llm.ollama import ollama_model_complete, ollama_embed
+
+@wrap_embedding_func_with_attrs(embedding_dim=768, max_token_size=8192, model_name="nomic-embed-text")
+async def embedding_func(texts: list[str]) -> np.ndarray:
+    return await ollama_embed.func(texts, embed_model="nomic-embed-text")
+
 rag = LightRAG(
     working_dir=WORKING_DIR,
-    llm_model_func=ollama_model_complete,  # 使用Ollama模型进行文本生成
+    llm_model_func=ollama_model_complete,  # 使用 Ollama 模型进行文本生成
     llm_model_name='your_model_name', # 您的模型名称
     llm_model_kwargs={"options": {"num_ctx": 32768}},
-    # 使用Ollama嵌入函数
-    embedding_func=EmbeddingFunc(
-        embedding_dim=768,
-        func=lambda texts: ollama_embed(
-            texts,
-            embed_model="nomic-embed-text"
-        )
-    ),
+    embedding_func=embedding_func,  # 直接传入装饰后的函数
 )
 ```
 
-* **低RAM GPU**
+> **关于嵌入函数封装的重要说明：**
+>
+> `EmbeddingFunc` 不能嵌套封装。已经被 `@wrap_embedding_func_with_attrs` 装饰过的嵌入函数（如 `openai_embed`、`ollama_embed` 等）不能再次使用 `EmbeddingFunc()` 封装。这就是为什么在创建自定义嵌入函数时，我们调用 `xxx_embed.func`（底层未封装的函数）而不是直接调用 `xxx_embed`。
 
-为了在低RAM GPU上运行此实验，您应该选择小型模型并调整上下文窗口（增加上下文会增加内存消耗）。例如，在6Gb RAM的改装挖矿GPU上运行这个ollama示例需要将上下文大小设置为26k，同时使用`gemma2:2b`。它能够在`book.txt`中找到197个实体和19个关系。
+* **低显存 GPU**
+
+如果要在低显存 GPU 上运行此实验，您应该选择较小的模型并调整上下文窗口（增加上下文会增加内存消耗）。例如，在一块改装的 6GB 显存的挖矿 GPU 上运行此 Ollama 示例，需要在使用 `gemma2:2b` 时将上下文大小设置为 26k。它能够在 `book.txt` 中找到 197 个实体和 19 个关系。
 
 </details>
+
 <details>
 <summary> <b>LlamaIndex</b> </summary>
 
-LightRAG支持与LlamaIndex集成 (`llm/llama_index_impl.py`):
+LightRAG 支持与 LlamaIndex 集成（`llm/llama_index_impl.py`）：
 
-- 通过LlamaIndex与OpenAI和其他提供商集成
-- 详细设置和示例请参见[LlamaIndex文档](lightrag/llm/Readme.md)
+- 通过 LlamaIndex 与 OpenAI 和其他提供商集成
+- 详细设置请参阅 [LlamaIndex 文档](https://developers.llamaindex.ai/python/framework/) 或 [示例](examples/unofficial-sample/)
 
-**使用示例：**
+**示例用法**
 
 ```python
-# 使用LlamaIndex直接访问OpenAI
+# 使用 LlamaIndex 直接访问 OpenAI
 import asyncio
 from lightrag import LightRAG
 from lightrag.llm.llama_index_impl import llama_index_complete_if_cache, llama_index_embed
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
-from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.utils import setup_logger
 
-# 为LightRAG设置日志处理程序
+# 为 LightRAG 设置日志处理器
 setup_logger("lightrag", level="INFO")
 
 async def initialize_rag():
     rag = LightRAG(
         working_dir="your/path",
-        llm_model_func=llama_index_complete_if_cache,  # LlamaIndex兼容的完成函数
-        embedding_func=EmbeddingFunc(    # LlamaIndex兼容的嵌入函数
+        llm_model_func=llama_index_complete_if_cache,  # 与 LlamaIndex 兼容的补全函数
+        embedding_func=EmbeddingFunc(    # 与 LlamaIndex 兼容的嵌入函数
             embedding_dim=1536,
-            func=lambda texts: llama_index_embed(texts, embed_model=embed_model)
+            max_token_size=2048,
+            model_name=embed_model,
+            func=partial(llama_index_embed.func, embed_model=embed_model)  # 使用 .func 访问未封装的原始函数
         ),
     )
 
     await rag.initialize_storages()
-    await initialize_pipeline_status()
-
     return rag
 
 def main():
-    # 初始化RAG实例
+    # 初始化 RAG 实例
     rag = asyncio.run(initialize_rag())
 
     with open("./book.txt", "r", encoding="utf-8") as f:
@@ -602,60 +640,158 @@ def main():
 
     # 执行朴素搜索
     print(
-        rag.query("这个故事的主要主题是什么？", param=QueryParam(mode="naive"))
+        rag.query("What are the top themes in this story?", param=QueryParam(mode="naive"))
     )
 
     # 执行本地搜索
     print(
-        rag.query("这个故事的主要主题是什么？", param=QueryParam(mode="local"))
+        rag.query("What are the top themes in this story?", param=QueryParam(mode="local"))
     )
 
     # 执行全局搜索
     print(
-        rag.query("这个故事的主要主题是什么？", param=QueryParam(mode="global"))
+        rag.query("What are the top themes in this story?", param=QueryParam(mode="global"))
     )
 
     # 执行混合搜索
     print(
-        rag.query("这个故事的主要主题是什么？", param=QueryParam(mode="hybrid"))
+        rag.query("What are the top themes in this story?", param=QueryParam(mode="hybrid"))
     )
 
 if __name__ == "__main__":
     main()
 ```
 
-**详细文档和示例，请参见：**
+**详细文档和示例请参阅：**
 
-- [LlamaIndex文档](lightrag/llm/Readme.md)
-- [直接OpenAI示例](examples/lightrag_llamaindex_direct_demo.py)
-- [LiteLLM代理示例](examples/lightrag_llamaindex_litellm_demo.py)
+- [LlamaIndex 文档](https://developers.llamaindex.ai/python/framework/)
+- [直接使用 OpenAI 示例](examples/unofficial-sample/lightrag_llamaindex_direct_demo.py)
+- [LiteLLM 代理示例](examples/unofficial-sample/lightrag_llamaindex_litellm_demo.py)
+- [LiteLLM 代理与 Opik 集成示例](examples/unofficial-sample/lightrag_llamaindex_litellm_opik_demo.py)
 
 </details>
 
-### Rerank函数注入
+<details>
+<summary> <b>使用 Azure OpenAI 模型</b> </summary>
 
-为了提高检索质量，可以根据更有效的相关性评分模型对文档进行重排序。`rerank.py`文件提供了三个Reranker提供商的驱动函数：
+如果您想使用 Azure OpenAI 模型，您只需要按如下方式设置 LightRAG：
+
+```python
+import os
+import numpy as np
+from lightrag.utils import wrap_embedding_func_with_attrs
+from lightrag.llm.azure_openai import azure_openai_complete_if_cache, azure_openai_embed
+
+# 配置生成模型
+async def llm_model_func(
+    prompt, system_prompt=None, history_messages=[], keyword_extraction=False, **kwargs
+) -> str:
+    return await azure_openai_complete_if_cache(
+        prompt,
+        system_prompt=system_prompt,
+        history_messages=history_messages,
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+        api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+        deployment_name=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
+        **kwargs
+    )
+
+# 配置嵌入模型
+@wrap_embedding_func_with_attrs(
+    embedding_dim=1536,
+    max_token_size=8192,
+    model_name=os.getenv("AZURE_OPENAI_EMBEDDING_MODEL")
+)
+async def embedding_func(texts: list[str]) -> np.ndarray:
+    return await azure_openai_embed.func(
+        texts,
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+        api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+        deployment_name=os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME")
+    )
+
+rag = LightRAG(
+    working_dir=WORKING_DIR,
+    llm_model_func=llm_model_func,
+    embedding_func=embedding_func
+)
+```
+
+</details>
+
+<details>
+<summary> <b>使用 Google Gemini 模型</b> </summary>
+
+如果您想使用 Google Gemini 模型，您只需要按如下方式设置 LightRAG：
+
+```python
+import os
+import numpy as np
+from lightrag.utils import wrap_embedding_func_with_attrs
+from lightrag.llm.gemini import gemini_complete, gemini_embed
+
+# 配置生成模型
+async def llm_model_func(
+    prompt, system_prompt=None, history_messages=[], keyword_extraction=False, **kwargs
+) -> str:
+    return await gemini_complete(
+        prompt,
+        system_prompt=system_prompt,
+        history_messages=history_messages,
+        api_key=os.getenv("GEMINI_API_KEY"),
+        model="gemini-1.5-flash",
+        **kwargs
+    )
+
+# 配置嵌入模型
+@wrap_embedding_func_with_attrs(
+    embedding_dim=768,
+    max_token_size=2048,
+    model_name="models/text-embedding-004"
+)
+async def embedding_func(texts: list[str]) -> np.ndarray:
+    return await gemini_embed.func(
+        texts,
+        api_key=os.getenv("GEMINI_API_KEY"),
+        model="models/text-embedding-004"
+    )
+
+rag = LightRAG(
+    working_dir=WORKING_DIR,
+    llm_model_func=llm_model_func,
+    llm_model_name="gemini-2.0-flash",
+    embedding_func=embedding_func
+)
+```
+
+</details>
+
+### Rerank 函数注入
+
+为了提升检索质量，可以基于更有效的相关性评分模型对文档进行重新排序。`rerank.py` 文件提供了三个 Reranker 服务商的驱动函数：
 
 * **Cohere / vLLM**: `cohere_rerank`
 * **Jina AI**: `jina_rerank`
-* **Aliyun阿里云**: `ali_rerank`
+* **阿里云**: `ali_rerank`
 
-您可以将这些函数之一注入到LightRAG对象的`rerank_model_func`属性中。这将使LightRAG的查询功能能够使用注入的函数对检索到的文本块进行重新排序。有关详细用法，请参阅`examples/rerank_example.py`文件。
+您可以将其中一个函数注入到 LightRAG 对象的 `rerank_model_func` 属性中。这将使 LightRAG 的查询函数能够使用注入的函数对检索到的文本块进行重新排序。详细用法请参考 `examples/rerank_example.py` 文件。
 
-### 用户提示词 vs. 查询内容
+### User Prompt 与 Query 的区别
 
-当使用LightRAG查询内容的时候，不要把内容查询和与查询结果无关的输出加工写在一起。因为把两者混在一起会严重影响查询的效果。Query Param中的`user_prompt`就是为解决这一问题而设计的。`user_prompt`中的内容不参与RAG中的查询过程，它仅会在获得查询结果之后，与查询结果一起送给LLM，指导LLM如何处理查询结果。以下是使用方法：
+使用 LightRAG 进行内容查询时，应避免将搜索过程与不相关的输出处理混合在一起，因为这会显著影响查询效果。QueryParam 中的 `user_prompt` 参数专门用于解决此问题 - 它不参与 RAG 检索阶段，而是在查询完成后指导 LLM 如何处理检索到的结果。使用方法如下：
 
 ```python
-# Create query parameters
+# 创建查询参数
 query_param = QueryParam(
-    mode = "hybrid",  # Other modes：local, global, hybrid, mix, naive
-    user_prompt = "如需画图使用mermaid格式，节点名称用英文或拼音，显示名称用中文",
+    mode = "hybrid",  # 其他模式：local, global, hybrid, mix, naive
+    user_prompt = "对于图表，使用 mermaid 格式，节点名称使用英文或拼音，显示标签使用中文",
 )
 
-# Query and process
+# 查询并处理
 response_default = rag.query(
-    "请画出 Scrooge 的人物关系图谱",
+    "请为斯克鲁奇绘制人物关系图",
     param=query_param
 )
 print(response_default)
@@ -680,58 +816,54 @@ rag.insert("文本")
 # 基本批量插入：一次插入多个文本
 rag.insert(["文本1", "文本2",...])
 
-# 带有自定义批量大小配置的批量插入
+# 自定义批量大小配置的批量插入
 rag = LightRAG(
     ...
     working_dir=WORKING_DIR,
     max_parallel_insert = 4
 )
 
-rag.insert(["文本1", "文本2", "文本3", ...])  # 文档将以4个为一批进行处理
+rag.insert(["文本1", "文本2", "文本3", ...])  # 文档将以每批 4 个的方式处理
 ```
 
-参数 `max_parallel_insert` 用于控制文档索引流水线中并行处理的文档数量。若未指定，默认值为 **2**。建议将该参数设置为 **10 以下**，因为性能瓶颈通常出现在大语言模型（LLM）的处理环节。
+`max_parallel_insert` 参数决定了文档索引管道中并发处理的文档数量。如果未指定，默认值为 **2**。我们建议将此设置保持在 **10 以下**，因为性能瓶颈通常在于大语言模型（LLM）的处理能力。
 
 </details>
 
 <details>
-  <summary> <b> 带ID插入 </b></summary>
+  <summary> <b> 带 ID 插入 </b></summary>
 
-如果您想为文档提供自己的ID，文档数量和ID数量必须相同。
+如果您想为文档提供自定义 ID，文档数量和 ID 数量必须相同。
 
 ```python
-# 插入单个文本，并为其提供ID
+# 插入单个文本，并为其提供 ID
 rag.insert("文本1", ids=["文本1的ID"])
 
-# 插入多个文本，并为它们提供ID
+# 插入多个文本，并为它们提供 ID
 rag.insert(["文本1", "文本2",...], ids=["文本1的ID", "文本2的ID"])
 ```
 
 </details>
 
 <details>
-  <summary><b>使用流水线插入</b></summary>
+  <summary><b>使用管道插入</b></summary>
 
-`apipeline_enqueue_documents`和`apipeline_process_enqueue_documents`函数允许您对文档进行增量插入到图中。
-
-这对于需要在后台处理文档的场景很有用，同时仍允许主线程继续执行。
-
-并使用例程处理新文档。
+`apipeline_enqueue_documents` 和 `apipeline_process_enqueue_documents` 函数允许您将文档增量插入到图中。这对于希望在后台处理文档同时允许主线程继续执行的场景非常有用。
 
 ```python
 rag = LightRAG(..)
 
 await rag.apipeline_enqueue_documents(input)
-# 您的循环例程
+# 在循环中的例程
 await rag.apipeline_process_enqueue_documents(input)
 ```
 
 </details>
 
 <details>
-  <summary><b>插入多文件类型支持</b></summary>
+  <summary><b>多文件类型支持插入</b></summary>
 
-`textract`支持读取TXT、DOCX、PPTX、CSV和PDF等文件类型。
+`textract` 支持读取 TXT、DOCX、PPTX、CSV 和 PDF 等文件类型。
 
 ```python
 import textract
@@ -745,77 +877,78 @@ rag.insert(text_content.decode('utf-8'))
 </details>
 
 <details>
-  <summary><b>引文功能</b></summary>
+  <summary><b>引用功能</b></summary>
 
-通过提供文件路径，系统确保可以将来源追溯到其原始文档。
+通过提供文件路径，系统可以确保来源可以追溯到原始文档。
 
 ```python
 # 定义文档及其文件路径
-documents = ["文档内容1", "文档内容2"]
+documents = ["文档内容 1", "文档内容 2"]
 file_paths = ["path/to/doc1.txt", "path/to/doc2.txt"]
 
-# 插入带有文件路径的文档
+# 带文件路径插入文档
 rag.insert(documents, file_paths=file_paths)
 ```
 
 </details>
 
-### 存储
+### 存储方案
 
-LightRAG 使用 4 种类型的存储用于不同目的：
+LightRAG 使用 4 种类型的存储来满足不同用途：
 
-* KV_STORAGE：llm 响应缓存、文本块、文档信息
-* VECTOR_STORAGE：实体向量、关系向量、块向量
+* KV_STORAGE：LLM 响应缓存、文本块、文档信息
+* VECTOR_STORAGE：实体向量、关系向量、文本块向量
 * GRAPH_STORAGE：实体关系图
 * DOC_STATUS_STORAGE：文档索引状态
 
-每种存储类型都有几种实现：
+每种存储类型都有多种实现：
 
-* KV_STORAGE 支持的实现名称
+* KV_STORAGE 支持的实现：
 
 ```
-JsonKVStorage    JsonFile(默认)
+JsonKVStorage    JsonFile（默认）
 PGKVStorage      Postgres
 RedisKVStorage   Redis
-MongoKVStorage   MogonDB
+MongoKVStorage   MongoDB
 ```
 
-* GRAPH_STORAGE 支持的实现名称
+* GRAPH_STORAGE 支持的实现：
 
 ```
-NetworkXStorage      NetworkX(默认)
+NetworkXStorage      NetworkX（默认）
 Neo4JStorage         Neo4J
-PGGraphStorage       PostgreSQL with AGE plugin
+PGGraphStorage       PostgreSQL with AGE 插件
+MemgraphStorage      Memgraph
 ```
 
-> 在测试中Neo4j图形数据库相比PostgreSQL AGE有更好的性能表现。
+> 测试表明，Neo4J 在生产环境中的性能优于带有 AGE 插件的 PostgreSQL。
 
-* VECTOR_STORAGE 支持的实现名称
+* VECTOR_STORAGE 支持的实现：
 
 ```
-NanoVectorDBStorage         NanoVector(默认)
+NanoVectorDBStorage         NanoVector（默认）
 PGVectorStorage             Postgres
-MilvusVectorDBStorge        Milvus
+MilvusVectorDBStorage       Milvus
 FaissVectorDBStorage        Faiss
 QdrantVectorDBStorage       Qdrant
 MongoVectorDBStorage        MongoDB
 ```
 
-* DOC_STATUS_STORAGE 支持的实现名称
+* DOC_STATUS_STORAGE 支持的实现：
 
 ```
-JsonDocStatusStorage        JsonFile(默认)
+JsonDocStatusStorage        JsonFile（默认）
 PGDocStatusStorage          Postgres
 MongoDocStatusStorage       MongoDB
 ```
 
-每一种存储类型的链接配置范例可以在 `env.example` 文件中找到。链接字符串中的数据库实例是需要你预先在数据库服务器上创建好的，LightRAG 仅负责在数据库实例中创建数据表，不负责创建数据库实例。如果使用 Redis 作为存储，记得给 Redis 配置自动持久化数据规则，否则 Redis 服务重启后数据会丢失。如果使用PostgreSQL数据库，推荐使用16.6版本或以上。
+各存储类型的示例连接配置可在 `env.example` 文件中找到。连接字符串中的数据库实例需要您预先在数据库服务器上创建。LightRAG 仅负责在数据库实例中创建表，不负责创建数据库实例本身。如果使用 Redis 作为存储，请记住配置 Redis 的自动数据持久化规则，否则 Redis 服务重启后数据将会丢失。如果使用 PostgreSQL，建议使用 16.6 或更高版本。
 
 <details>
-<summary> <b>使用Neo4J存储</b> </summary>
+<summary> <b>使用 Neo4J 存储</b> </summary>
 
-* 对于生产级场景，您很可能想要利用企业级解决方案
-* 进行KG存储。推荐在Docker中运行Neo4J以进行无缝本地测试。
+* 对于生产级场景，您很可能需要使用企业级解决方案
+* 用于知识图谱存储。推荐在 Docker 中运行 Neo4J 进行无缝本地测试。
 * 参见：https://hub.docker.com/_/neo4j
 
 ```python
@@ -823,35 +956,44 @@ export NEO4J_URI="neo4j://localhost:7687"
 export NEO4J_USERNAME="neo4j"
 export NEO4J_PASSWORD="password"
 
-# 为LightRAG设置日志记录器
+# 为 LightRAG 设置日志
 setup_logger("lightrag", level="INFO")
 
-# 当您启动项目时，请确保通过指定kg="Neo4JStorage"来覆盖默认的KG：NetworkX。
-
-# 注意：默认设置使用NetworkX
-# 使用Neo4J实现初始化LightRAG。
+# 启动项目时，请确保通过指定 graph_storage="Neo4JStorage" 来覆盖默认的 KG: NetworkX。
+# 使用 Neo4J 实现初始化 LightRAG。
 async def initialize_rag():
     rag = LightRAG(
         working_dir=WORKING_DIR,
-        llm_model_func=gpt_4o_mini_complete,  # 使用gpt_4o_mini_complete LLM模型
-        graph_storage="Neo4JStorage", #<-----------覆盖KG默认值
+        llm_model_func=gpt_4o_mini_complete,  # 使用 gpt_4o_mini_complete LLM 模型
+        graph_storage="Neo4JStorage", #<-----------覆盖 KG 默认值
     )
 
     # 初始化数据库连接
     await rag.initialize_storages()
     # 初始化文档处理的管道状态
-    await initialize_pipeline_status()
-
     return rag
 ```
 
-参见test_neo4j.py获取工作示例。
+参见 test_neo4j.py 获取可运行的示例。
 
 </details>
 
 <details>
-<summary> <b>使用Faiss存储</b> </summary>
-在使用Faiss向量数据库之前必须手工安装`faiss-cpu`或`faiss-gpu`。
+<summary> <b>使用 PostgreSQL 存储</b> </summary>
+
+对于生产级场景，您很可能需要使用企业级解决方案。PostgreSQL 可以为您提供一站式解决方案，作为 KV 存储、VectorDB（pgvector）和 GraphDB（apache AGE）。支持 PostgreSQL 16.6 或更高版本。
+
+* PostgreSQL 很轻量，包含所有必要插件的完整二进制发行版可以压缩到 40MB：参考 [Windows Release](https://github.com/ShanGor/apache-age-windows/releases/tag/PG17%2Fv1.5.0-rc0)，Linux/Mac 也很容易安装。
+* 如果您喜欢 docker，建议初学者使用此镜像以避免出现问题（默认用户密码：rag/rag）：https://hub.docker.com/r/gzdaniel/postgres-for-rag
+* 如何开始？参考：[examples/lightrag_gemini_postgres_demo.py](https://github.com/HKUDS/LightRAG/blob/main/examples/lightrag_gemini_postgres_demo.py)
+* 对于高性能图数据库需求，推荐使用 Neo4j，因为 Apache AGE 的性能不够理想。
+
+</details>
+
+<details>
+<summary> <b>使用 Faiss 存储</b> </summary>
+
+在使用 Faiss 向量数据库之前，您必须手动安装 `faiss-cpu` 或 `faiss-gpu`。
 
 - 安装所需依赖：
 
@@ -859,9 +1001,9 @@ async def initialize_rag():
 pip install faiss-cpu
 ```
 
-如果您有GPU支持，也可以安装`faiss-gpu`。
+如果您有 GPU 支持，也可以安装 `faiss-gpu`。
 
-- 这里我们使用`sentence-transformers`，但您也可以使用维度为`3072`的`OpenAIEmbedding`模型。
+- 这里我们使用 `sentence-transformers`，但您也可以使用 `3072` 维度的 `OpenAIEmbedding` 模型。
 
 ```python
 async def embedding_func(texts: list[str]) -> np.ndarray:
@@ -869,12 +1011,14 @@ async def embedding_func(texts: list[str]) -> np.ndarray:
     embeddings = model.encode(texts, convert_to_numpy=True)
     return embeddings
 
-# 使用LLM模型函数和嵌入函数初始化LightRAG
+# 使用 LLM 模型函数和嵌入函数初始化 LightRAG
 rag = LightRAG(
     working_dir=WORKING_DIR,
     llm_model_func=llm_model_func,
     embedding_func=EmbeddingFunc(
         embedding_dim=384,
+        max_token_size=2048,
+        model_name="all-MiniLM-L6-v2",
         func=embedding_func,
     ),
     vector_storage="FaissVectorDBStorage",
@@ -887,26 +1031,48 @@ rag = LightRAG(
 </details>
 
 <details>
-<summary> <b>使用PostgreSQL存储</b> </summary>
+<summary> <b>使用 Memgraph 存储</b> </summary>
 
-对于生产级场景，您很可能想要利用企业级解决方案。PostgreSQL可以为您提供一站式储解解决方案，作为KV存储、向量数据库（pgvector）和图数据库（apache AGE）。支持 PostgreSQL 版本为16.6或以上。
+* Memgraph 是一个高性能的内存图数据库，兼容 Neo4j Bolt 协议。
+* 您可以使用 Docker 在本地运行 Memgraph 进行简单测试：
+* 参见：https://memgraph.com/download
 
-* 如果您是初学者并想避免麻烦，推荐使用docker，请从这个镜像开始（请务必阅读概述）：https://hub.docker.com/r/shangor/postgres-for-rag
-* Apache AGE的性能不如Neo4j。追求高性能的图数据库请使用Noe4j。
+```python
+export MEMGRAPH_URI="bolt://localhost:7687"
+
+# 为 LightRAG 设置日志
+setup_logger("lightrag", level="INFO")
+
+# 启动项目时，通过指定 kg="MemgraphStorage" 来覆盖默认的 KG: NetworkX。
+
+# 注意：默认设置使用 NetworkX
+# 使用 Memgraph 实现初始化 LightRAG。
+async def initialize_rag():
+    rag = LightRAG(
+        working_dir=WORKING_DIR,
+        llm_model_func=gpt_4o_mini_complete,  # 使用 gpt_4o_mini_complete LLM 模型
+        graph_storage="MemgraphStorage", #<-----------覆盖 KG 默认值
+    )
+
+    # 初始化数据库连接
+    await rag.initialize_storages()
+    # 初始化文档处理的管道状态
+    return rag
+```
 
 </details>
 
 <details>
-<summary> <b>使用MogonDB存储</b> </summary>
+<summary> <b>使用 MongoDB 存储</b> </summary>
 
-MongoDB为LightRAG提供了一站式的存储解决方案。MongoDB提供原生的KV存储和向量存储。LightRAG使用MogoDB的集合实现了一个简易的图存储。MongoDB 官方的向量检索功能（`$vectorSearch`）目前必须依赖其官方的云服务 MongoDB Atlas。无法在自托管的 MongoDB Community/Enterprise 版本上使用此功能。
+MongoDB 为 LightRAG 提供了一站式存储解决方案。MongoDB 提供原生的 KV 存储和向量存储。LightRAG 使用 MongoDB 集合来实现简单的图存储。MongoDB 官方的向量搜索功能（`$vectorSearch`）目前需要其官方云服务 MongoDB Atlas。此功能无法在自托管的 MongoDB Community/Enterprise 版本上使用。
 
 </details>
 
 <details>
-<summary> <b>使用Redis存储</b> </summary>
+<summary> <b>使用 Redis 存储</b> </summary>
 
-LightRAG支持使用Reidis作为KV存储。使用Redis存储的时候需要注意进行持久化配置和内存使用量配置。以下是推荐的redis配置
+LightRAG 支持使用 Redis 作为 KV 存储。使用 Redis 存储时，需要注意持久化配置和内存使用配置。以下是推荐的 Redis 配置：
 
 ```
 save 900 1
@@ -920,46 +1086,46 @@ maxclients 500
 
 </details>
 
-### LightRAG实例间的数据隔离
+### LightRAG 实例之间的数据隔离
 
-通过 workspace 参数可以不同实现不同LightRAG实例之间的存储数据隔离。LightRAG在初始化后workspace就已经确定，之后修改workspace是无效的。下面是不同类型的存储实现工作空间的方式：
+`workspace` 参数确保不同 LightRAG 实例之间的数据隔离。一旦初始化，`workspace` 是不可变的，无法更改。以下是不同类型存储实现工作区的方式：
 
-- **对于本地基于文件的数据库，数据隔离通过工作空间子目录实现：** JsonKVStorage, JsonDocStatusStorage, NetworkXStorage, NanoVectorDBStorage, FaissVectorDBStorage。
-- **对于将数据存储在集合（collection）中的数据库，通过在集合名称前添加工作空间前缀来实现：** RedisKVStorage, RedisDocStatusStorage, MilvusVectorDBStorage, QdrantVectorDBStorage, MongoKVStorage, MongoDocStatusStorage, MongoVectorDBStorage, MongoGraphStorage, PGGraphStorage。
-- **对于关系型数据库，数据隔离通过向表中添加 `workspace` 字段进行数据的逻辑隔离：** PGKVStorage, PGVectorStorage, PGDocStatusStorage。
+- **对于基于本地文件的数据库，通过工作区子目录实现数据隔离**：`JsonKVStorage`、`JsonDocStatusStorage`、`NetworkXStorage`、`NanoVectorDBStorage`、`FaissVectorDBStorage`。
+- **对于以集合方式存储数据的数据库，通过在集合名称前添加工作区前缀来实现**：`RedisKVStorage`、`RedisDocStatusStorage`、`MilvusVectorDBStorage`、`MongoKVStorage`、`MongoDocStatusStorage`、`MongoVectorDBStorage`、`MongoGraphStorage`、`PGGraphStorage`。
+- **对于 Qdrant 向量数据库，通过基于 payload 的分区实现数据隔离（Qdrant 推荐的多租户方法）**：`QdrantVectorDBStorage` 使用带有 payload 过滤的共享集合，实现无限的工作区可扩展性。
+- **对于关系型数据库，通过在表中添加 `workspace` 字段实现逻辑数据分离**：`PGKVStorage`、`PGVectorStorage`、`PGDocStatusStorage`。
+- **对于 Neo4j 图数据库，通过标签实现逻辑数据隔离**：`Neo4JStorage`
 
-* **对于Neo4j图数据库，通过label来实现数据的逻辑隔离**：Neo4JStorage
+为了保持与旧数据的兼容性，当未配置工作区时，PostgreSQL 非图存储的默认工作区为 `default`，PostgreSQL AGE 图存储的默认工作区为 null，Neo4j 图存储的默认工作区为 `base`。对于所有外部存储，系统提供专用的工作区环境变量来覆盖通用的 `WORKSPACE` 环境变量配置。这些存储特定的工作区环境变量包括：`REDIS_WORKSPACE`、`MILVUS_WORKSPACE`、`QDRANT_WORKSPACE`、`MONGODB_WORKSPACE`、`POSTGRES_WORKSPACE`、`NEO4J_WORKSPACE`。
 
-为了保持对遗留数据的兼容，在未配置工作空间时PostgreSQL非图存储的工作空间为`default`，PostgreSQL AGE图存储的工作空间为空，Neo4j图存储的默认工作空间为`base`。对于所有的外部存储，系统都提供了专用的工作空间环境变量，用于覆盖公共的 `WORKSPACE`环境变量配置。这些适用于指定存储类型的工作空间环境变量为：`REDIS_WORKSPACE`, `MILVUS_WORKSPACE`, `QDRANT_WORKSPACE`, `MONGODB_WORKSPACE`, `POSTGRES_WORKSPACE`, `NEO4J_WORKSPACE`。
+### AGENTS.md -- 指导编码代理
 
-### AGENTS.md – 自动编程引导文件
-
-AGENTS.md 是一种简洁、开放的格式，用于指导自动编程代理完成工作（https://agents.md/）。它为 LightRAG 项目提供了一个专属且可预测的上下文与指令位置，帮助 AI 代码代理更好地开展工作。不同的 AI 代码代理不应各自维护独立的引导文件。如果某个 AI 代理无法自动识别 AGENTS.md，可使用符号链接来解决。建立符号链接后，可通过配置本地的 `.gitignore_global` 文件防止其被提交至 Git 仓库。
+AGENTS.md 是一种简单、开放的格式，用于指导编码代理（https://agents.md/）。它是一个专门的、可预测的地方，用于提供上下文和指令，帮助 AI 编码代理在 LightRAG 项目上工作。不同的 AI 编码器不应单独维护各自的指导文件。如果任何 AI 编码器无法自动识别 AGENTS.md，可以使用符号链接作为解决方案。建立符号链接后，可以通过配置本地的 `.gitignore_global` 来防止它们被提交到 Git 仓库。
 
 ## 编辑实体和关系
 
-LightRAG现在支持全面的知识图谱管理功能，允许您在知识图谱中创建、编辑和删除实体和关系。
+LightRAG 现在支持全面的知识图谱管理功能，允许您在知识图谱中创建、编辑和删除实体和关系。
 
 <details>
-<summary> <b>创建实体和关系</b> </summary>
+  <summary> <b> 创建实体和关系 </b></summary>
 
 ```python
 # 创建新实体
 entity = rag.create_entity("Google", {
-    "description": "Google是一家专注于互联网相关服务和产品的跨国科技公司。",
+    "description": "Google 是一家专注于互联网相关服务和产品的跨国科技公司。",
     "entity_type": "company"
 })
 
 # 创建另一个实体
 product = rag.create_entity("Gmail", {
-    "description": "Gmail是由Google开发的电子邮件服务。",
+    "description": "Gmail 是 Google 开发的电子邮件服务。",
     "entity_type": "product"
 })
 
 # 创建实体之间的关系
 relation = rag.create_relation("Google", "Gmail", {
-    "description": "Google开发和运营Gmail。",
-    "keywords": "开发 运营 服务",
+    "description": "Google 开发和运营 Gmail。",
+    "keywords": "develops operates service",
     "weight": 2.0
 })
 ```
@@ -967,91 +1133,98 @@ relation = rag.create_relation("Google", "Gmail", {
 </details>
 
 <details>
-<summary> <b>编辑实体和关系</b> </summary>
+  <summary> <b> 手动修改实体与关系 </b></summary>
 
 ```python
-# 编辑现有实体
+# Edit an existing entity
 updated_entity = rag.edit_entity("Google", {
-    "description": "Google是Alphabet Inc.的子公司，成立于1998年。",
+    "description": "Google is a subsidiary of Alphabet Inc., founded in 1998.",
     "entity_type": "tech_company"
 })
 
-# 重命名实体（所有关系都会正确迁移）
+# Rename an entity (with all its relationships properly migrated)
 renamed_entity = rag.edit_entity("Gmail", {
     "entity_name": "Google Mail",
-    "description": "Google Mail（前身为Gmail）是一项电子邮件服务。"
+    "description": "Google Mail (formerly Gmail) is an email service."
 })
 
-# 编辑实体之间的关系
+# Edit a relation between entities
 updated_relation = rag.edit_relation("Google", "Google Mail", {
-    "description": "Google创建并维护Google Mail服务。",
-    "keywords": "创建 维护 电子邮件服务",
+    "description": "Google created and maintains Google Mail service.",
+    "keywords": "creates maintains email service",
     "weight": 3.0
 })
 ```
 
-所有操作都有同步和异步版本。异步版本带有前缀"a"（例如，`acreate_entity`，`aedit_relation`）。
+所有操作均提供同步和异步两个版本。异步版本带有 "a" 前缀（例如：`acreate_entity`、`aedit_relation`）。
 
 </details>
 
 <details>
-<summary> <b>插入自定义知识</b> </summary>
+  <summary> <b> 插入自定义知识图谱 </b></summary>
 
 ```python
 custom_kg = {
-    "chunks": [
-        {
-            "content": "Alice和Bob正在合作进行量子计算研究。",
-            "source_id": "doc-1"
-        }
-    ],
-    "entities": [
-        {
-            "entity_name": "Alice",
-            "entity_type": "person",
-            "description": "Alice是一位专门研究量子物理的研究员。",
-            "source_id": "doc-1"
-        },
-        {
-            "entity_name": "Bob",
-            "entity_type": "person",
-            "description": "Bob是一位数学家。",
-            "source_id": "doc-1"
-        },
-        {
-            "entity_name": "量子计算",
-            "entity_type": "technology",
-            "description": "量子计算利用量子力学现象进行计算。",
-            "source_id": "doc-1"
-        }
-    ],
-    "relationships": [
-        {
-            "src_id": "Alice",
-            "tgt_id": "Bob",
-            "description": "Alice和Bob是研究伙伴。",
-            "keywords": "合作 研究",
-            "weight": 1.0,
-            "source_id": "doc-1"
-        },
-        {
-            "src_id": "Alice",
-            "tgt_id": "量子计算",
-            "description": "Alice进行量子计算研究。",
-            "keywords": "研究 专业",
-            "weight": 1.0,
-            "source_id": "doc-1"
-        },
-        {
-            "src_id": "Bob",
-            "tgt_id": "量子计算",
-            "description": "Bob研究量子计算。",
-            "keywords": "研究 应用",
-            "weight": 1.0,
-            "source_id": "doc-1"
-        }
-    ]
-}
+        "chunks": [
+            {
+                "content": "Alice and Bob are collaborating on quantum computing research.",
+                "source_id": "doc-1",
+                "file_path": "test_file",
+            }
+        ],
+        "entities": [
+            {
+                "entity_name": "Alice",
+                "entity_type": "person",
+                "description": "Alice is a researcher specializing in quantum physics.",
+                "source_id": "doc-1",
+                "file_path": "test_file"
+            },
+            {
+                "entity_name": "Bob",
+                "entity_type": "person",
+                "description": "Bob is a mathematician.",
+                "source_id": "doc-1",
+                "file_path": "test_file"
+            },
+            {
+                "entity_name": "Quantum Computing",
+                "entity_type": "technology",
+                "description": "Quantum computing utilizes quantum mechanical phenomena for computation.",
+                "source_id": "doc-1",
+                "file_path": "test_file"
+            }
+        ],
+        "relationships": [
+            {
+                "src_id": "Alice",
+                "tgt_id": "Bob",
+                "description": "Alice and Bob are research partners.",
+                "keywords": "collaboration research",
+                "weight": 1.0,
+                "source_id": "doc-1",
+                "file_path": "test_file"
+            },
+            {
+                "src_id": "Alice",
+                "tgt_id": "Quantum Computing",
+                "description": "Alice conducts research on quantum computing.",
+                "keywords": "research expertise",
+                "weight": 1.0,
+                "source_id": "doc-1",
+                "file_path": "test_file"
+            },
+            {
+                "src_id": "Bob",
+                "tgt_id": "Quantum Computing",
+                "description": "Bob researches quantum computing.",
+                "keywords": "research application",
+                "weight": 1.0,
+                "source_id": "doc-1",
+                "file_path": "test_file"
+            }
+        ]
+    }
 
 rag.insert_custom_kg(custom_kg)
 ```
@@ -1059,11 +1232,10 @@ rag.insert_custom_kg(custom_kg)
 </details>
 
 <details>
-<summary> <b>其它实体与关系操作</b> </summary>
+  <summary> <b>其它实体与关系操作</b></summary>
 
 - **create_entity**：创建具有指定属性的新实体
 - **edit_entity**：更新现有实体的属性或重命名它
-
 - **create_relation**：在现有实体之间创建新关系
 - **edit_relation**：更新现有关系的属性
 
@@ -1073,7 +1245,7 @@ rag.insert_custom_kg(custom_kg)
 
 ## 删除功能
 
-LightRAG提供了全面的删除功能，允许您删除文档、实体和关系。
+LightRAG 提供了全面的删除能力，允许您删除文档、实体和关系。
 
 <details>
 <summary> <b>删除实体</b> </summary>
@@ -1088,9 +1260,9 @@ rag.delete_by_entity("Google")
 await rag.adelete_by_entity("Google")
 ```
 
-删除实体时会：
+删除实体时：
 - 从知识图谱中移除该实体节点
-- 删除该实体的所有关联关系
+- 删除所有关联的关系
 - 从向量数据库中移除相关的嵌入向量
 - 保持知识图谱的完整性
 
@@ -1109,68 +1281,63 @@ rag.delete_by_relation("Google", "Gmail")
 await rag.adelete_by_relation("Google", "Gmail")
 ```
 
-删除关系时会：
+删除关系时：
 - 移除指定的关系边
-- 从向量数据库中删除关系的嵌入向量
-- 保留两个实体节点及其他关系
+- 从向量数据库中删除该关系的嵌入向量
+- 保留实体节点及其它关系
 
 </details>
 
 <details>
-<summary> <b>通过文档ID删除</b> </summary>
+<summary> <b>通过文档 ID 删除</b> </summary>
 
-您可以通过文档ID删除整个文档及其相关的所有知识：
+您可以通过文档 ID 删除整个文档及其所有相关的知识：
 
 ```python
-# 通过文档ID删除（异步版本）
+# 通过文档 ID 删除（异步版本）
 await rag.adelete_by_doc_id("doc-12345")
 ```
 
-通过文档ID删除时的优化处理：
+通过文档 ID 删除时的优化处理：
 - **智能清理**：自动识别并删除仅属于该文档的实体和关系
-- **保留共享知识**：如果实体或关系在其他文档中也存在，则会保留并重新构建描述
-- **缓存优化**：清理相关的LLM缓存以减少存储开销
-- **增量重建**：从剩余文档重新构建受影响的实体和关系描述
+- **保留共享知识**：如果实体或关系在其他文档中也存在，则会保留并重新构建其描述
+- **缓存优化**：清理相关的 LLM 缓存以减少存储开销
+- **增量重建**：从剩余文档中重新构建受影响的实体和关系描述
 
 删除过程包括：
-1. 删除文档相关的所有文本块
-2. 识别仅属于该文档的实体和关系并删除
+1. 删除与该文档相关的所有文本块
+2. 识别并删除仅属于该文档的实体和关系
 3. 重新构建在其他文档中仍存在的实体和关系
 4. 更新所有相关的向量索引
 5. 清理文档状态记录
 
-注意：通过文档ID删除是一个异步操作，因为它涉及复杂的知识图谱重构过程。
+注意：由于涉及复杂的知识图谱重构过程，通过文档 ID 删除是一个异步操作。
 
 </details>
-
-<details>
-<summary> <b>删除注意事项</b> </summary>
 
 **重要提醒：**
 
 1. **不可逆操作**：所有删除操作都是不可逆的，请谨慎使用
-2. **性能考虑**：删除大量数据时可能需要一些时间，特别是通过文档ID删除
-3. **数据一致性**：删除操作会自动维护知识图谱和向量数据库之间的一致性
-4. **备份建议**：在执行重要删除操作前建议备份数据
+2. **性能考虑**：删除大量数据可能需要一些时间，特别是通过文档 ID 删除
+3. **数据一致性**：删除操作会自动维护知识图谱与向量数据库之间的一致性
+4. **备份建议**：在执行重要删除操作前，请考虑备份数据
 
 **批量删除建议：**
 - 对于批量删除操作，建议使用异步方法以获得更好的性能
-- 大规模删除时，考虑分批进行以避免系统负载过高
-
-</details>
+- 对于大规模删除，建议分批处理以避免系统负载过高
 
 ## 实体合并
 
 <details>
 <summary> <b>合并实体及其关系</b> </summary>
 
-LightRAG现在支持将多个实体合并为单个实体，自动处理所有关系：
+LightRAG 现在支持将多个实体合并为单个实体，并自动处理所有关系：
 
 ```python
-# 基本实体合并
+# 基础实体合并
 rag.merge_entities(
-    source_entities=["人工智能", "AI", "机器智能"],
-    target_entity="AI技术"
+    source_entities=["Artificial Intelligence", "AI", "Machine Intelligence"],
+    target_entity="AI Technology"
 )
 ```
 
@@ -1179,12 +1346,12 @@ rag.merge_entities(
 ```python
 # 为不同字段定义自定义合并策略
 rag.merge_entities(
-    source_entities=["约翰·史密斯", "史密斯博士", "J·史密斯"],
-    target_entity="约翰·史密斯",
+    source_entities=["John Smith", "Dr. Smith", "J. Smith"],
+    target_entity="John Smith",
     merge_strategy={
-        "description": "concatenate",  # 组合所有描述
+        "description": "concatenate",  # 合并所有描述
         "entity_type": "keep_first",   # 保留第一个实体的类型
-        "source_id": "join_unique"     # 组合所有唯一的源ID
+        "source_id": "join_unique"     # 合并所有唯一的源 ID
     }
 )
 ```
@@ -1192,27 +1359,27 @@ rag.merge_entities(
 使用自定义目标实体数据：
 
 ```python
-# 为合并后的实体指定确切值
+# 为合并后的实体指定精确值
 rag.merge_entities(
-    source_entities=["纽约", "NYC", "大苹果"],
-    target_entity="纽约市",
+    source_entities=["New York", "NYC", "Big Apple"],
+    target_entity="New York City",
     target_entity_data={
         "entity_type": "LOCATION",
-        "description": "纽约市是美国人口最多的城市。",
+        "description": "New York City is the most populous city in the United States.",
     }
 )
 ```
 
-结合两种方法的高级用法：
+结合上述两种方式的高级用法：
 
 ```python
-# 使用策略和自定义数据合并公司实体
+# 合并公司实体，同时使用策略和自定义数据
 rag.merge_entities(
-    source_entities=["微软公司", "Microsoft Corporation", "MSFT"],
-    target_entity="微软",
+    source_entities=["Microsoft Corp", "Microsoft Corporation", "MSFT"],
+    target_entity="Microsoft",
     merge_strategy={
-        "description": "concatenate",  # 组合所有描述
-        "source_id": "join_unique"     # 组合源ID
+        "description": "concatenate",  # 合并所有描述
+        "source_id": "join_unique"     # 合并源 ID
     },
     target_entity_data={
         "entity_type": "ORGANIZATION",
@@ -1224,25 +1391,25 @@ rag.merge_entities(
 
 * 所有来自源实体的关系都会重定向到目标实体
 * 重复的关系会被智能合并
-* 防止自我关系（循环）
-* 合并后删除源实体
-* 保留关系权重和属性
+* 防止出现自我指向的关系（自环）
+* 合并完成后源实体会被移除
+* 关系权重和属性会被保留
 
 </details>
 
-## 多模态文档处理（RAG-Anything集成）
+## 多模态文档处理（RAG-Anything 集成）
 
-LightRAG 现已与 [RAG-Anything](https://github.com/HKUDS/RAG-Anything) 实现无缝集成，这是一个专为 LightRAG 构建的**全能多模态文档处理RAG系统**。RAG-Anything 提供先进的解析和检索增强生成（RAG）能力，让您能够无缝处理多模态文档，并从各种文档格式中提取结构化内容——包括文本、图片、表格和公式——以集成到您的RAG流程中。
+LightRAG 现已与 [RAG-Anything](https://github.com/HKUDS/RAG-Anything) 无缝集成，这是一个专门为 LightRAG 构建的**全能多模态文档处理 RAG 系统**。RAG-Anything 能够实现先进的解析和检索增强生成（RAG）能力，允许您无缝处理多模态文档，并从各种文档格式中提取结构化内容——包括文本、图像、表格和公式——以集成到您的 RAG 流程中。
 
-**主要特性：**
+**核心特性：**
 - **端到端多模态流程**：从文档摄取解析到智能多模态问答的完整工作流程
-- **通用文档支持**：无缝处理PDF、Office文档（DOC/DOCX/PPT/PPTX/XLS/XLSX）、图片和各种文件格式
-- **专业内容分析**：针对图片、表格、数学公式和异构内容类型的专用处理器
-- **多模态知识图谱**：自动实体提取和跨模态关系发现以增强理解
-- **混合智能检索**：覆盖文本和多模态内容的高级搜索能力，具备上下文理解
+- **通用文档支持**：无缝处理 PDF、Office 文档（DOC/DOCX/PPT/PPTX/XLS/XLSX）、图像及多种文件格式
+- **专业内容分析**：针对图像、表格、数学公式及异构内容类型的专用处理器
+- **多模态知识图谱**：自动实体提取和跨模态关系发现，增强理解力
+- **混合智能检索**：跨越文本和多模态内容的高级搜索能力，具备上下文理解
 
 **快速开始：**
-1. 安装RAG-Anything：
+1. 安装 RAG-Anything：
    ```bash
    pip install raganything
    ```
@@ -1259,14 +1426,16 @@ LightRAG 现已与 [RAG-Anything](https://github.com/HKUDS/RAG-Anything) 实现�
         import os
 
         async def load_existing_lightrag():
-            # 首先，创建或加载现有的 LightRAG 实例
+            # 首先，创建或加载一个现有的 LightRAG 实例
             lightrag_working_dir = "./existing_lightrag_storage"
 
-            # 检查是否存在之前的 LightRAG 实例
+            # 检查先前的 LightRAG 实例是否存在
             if os.path.exists(lightrag_working_dir) and os.listdir(lightrag_working_dir):
                 print("✅ Found existing LightRAG instance, loading...")
             else:
                 print("❌ No existing LightRAG instance found, will create new one")
+
+            from functools import partial
 
             # 使用您的配置创建/加载 LightRAG 实例
             lightrag_instance = LightRAG(
@@ -1281,8 +1450,10 @@ LightRAG 现已与 [RAG-Anything](https://github.com/HKUDS/RAG-Anything) 实现�
                 ),
                 embedding_func=EmbeddingFunc(
                     embedding_dim=3072,
-                    func=lambda texts: openai_embed(
-                        texts,
+                    max_token_size=8192,
+                    model="text-embedding-3-large",
+                    func=partial(
+                        openai_embed.func,  # 使用 .func 访问未封装的原始函数
                         model="text-embedding-3-large",
                         api_key=api_key,
                         base_url=base_url,
@@ -1290,13 +1461,13 @@ LightRAG 现已与 [RAG-Anything](https://github.com/HKUDS/RAG-Anything) 实现�
                 )
             )
 
-            # 初始化存储（如果有现有数据，这将加载现有数据）
+            # 初始化存储（这将加载现有数据，如果有的话）
             await lightrag_instance.initialize_storages()
 
             # 现在使用现有的 LightRAG 实例初始化 RAGAnything
             rag = RAGAnything(
-                lightrag=lightrag_instance,  # 传递现有的 LightRAG 实例
-                # 仅需要视觉模型用于多模态处理
+                lightrag=lightrag_instance,  # 传入现有的 LightRAG 实例
+                # 仅在多模态处理时需要视觉模型
                 vision_model_func=lambda prompt, system_prompt=None, history_messages=[], image_data=None, **kwargs: openai_complete_if_cache(
                     "gpt-4o",
                     "",
@@ -1319,7 +1490,7 @@ LightRAG 现已与 [RAG-Anything](https://github.com/HKUDS/RAG-Anything) 实现�
                     api_key="your-api-key",
                     **kwargs,
                 )
-                # 注意：working_dir、llm_model_func、embedding_func 等都从 lightrag_instance 继承
+                # 注意：working_dir, llm_model_func, embedding_func 等都继承自 lightrag_instance
             )
 
             # 查询现有的知识库
@@ -1338,108 +1509,114 @@ LightRAG 现已与 [RAG-Anything](https://github.com/HKUDS/RAG-Anything) 实现�
         if __name__ == "__main__":
             asyncio.run(load_existing_lightrag())
     ```
-
     </details>
 
-如需详细文档和高级用法，请参阅 [RAG-Anything 仓库](https://github.com/HKUDS/RAG-Anything)。
+有关详细文档和高级用法，请参考 [RAG-Anything 仓库](https://github.com/HKUDS/RAG-Anything)。
 
-## Token统计功能
+## Token 使用量跟踪
 
 <details>
-<summary> <b>概述和使用</b> </summary>
+<summary> <b>概览与用法</b> </summary>
 
-LightRAG提供了TokenTracker工具来跟踪和管理大模型的token消耗。这个功能对于控制API成本和优化性能特别有用。
+LightRAG 提供了一个 TokenTracker 工具，用于监控和管理大语言模型的 token 消耗情况。此功能对于控制 API 成本和优化性能非常有用。
 
-### 使用方法
+### 用法
 
 ```python
 from lightrag.utils import TokenTracker
 
-# 创建TokenTracker实例
+# 创建 TokenTracker 实例
 token_tracker = TokenTracker()
 
-# 方法1：使用上下文管理器（推荐）
-# 适用于需要自动跟踪token使用的场景
+# 方法 1：使用上下文管理器（推荐）
+# 适用于需要自动跟踪 token 使用量的场景
 with token_tracker:
-    result1 = await llm_model_func("你的问题1")
-    result2 = await llm_model_func("你的问题2")
+    result1 = await llm_model_func("your question 1")
+    result2 = await llm_model_func("your question 2")
 
-# 方法2：手动添加token使用记录
-# 适用于需要更精细控制token统计的场景
+# 方法 2：手动添加 token 使用记录
+# 适用于需要更精细控制 token 统计的场景
 token_tracker.reset()
 
 rag.insert()
 
-rag.query("你的问题1", param=QueryParam(mode="naive"))
-rag.query("你的问题2", param=QueryParam(mode="mix"))
+rag.query("your question 1", param=QueryParam(mode="naive"))
+rag.query("your question 2", param=QueryParam(mode="mix"))
 
-# 显示总token使用量（包含插入和查询操作）
+# 显示总 token 使用量（包括插入和查询操作）
 print("Token usage:", token_tracker.get_usage())
 ```
 
-### 使用建议
-- 在长会话或批量操作中使用上下文管理器，可以自动跟踪所有token消耗
-- 对于需要分段统计的场景，使用手动模式并适时调用reset()
-- 定期检查token使用情况，有助于及时发现异常消耗
-- 在开发测试阶段积极使用此功能，以便优化生产环境的成本
+### 使用技巧
+- 在长会话或批量操作中使用上下文管理器，自动跟踪所有 token 消耗
+- 对于需要分段统计的场景，使用手动模式并在适当时候调用 reset()
+- 定期检查 token 使用量有助于及早发现异常消耗
+- 在开发和测试过程中积极使用此功能，以优化生产成本
 
-### 实际应用示例
-您可以参考以下示例来实现token统计：
-- `examples/lightrag_gemini_track_token_demo.py`：使用Google Gemini模型的token统计示例
-- `examples/lightrag_siliconcloud_track_token_demo.py`：使用SiliconCloud模型的token统计示例
+### 实践案例
+您可以参考以下示例来实施 token 跟踪：
+- `examples/lightrag_gemini_track_token_demo.py`：使用 Google Gemini 模型的 token 跟踪示例
+- `examples/lightrag_siliconcloud_track_token_demo.py`：使用 SiliconCloud 模型的 token 跟踪示例
 
-这些示例展示了如何在不同模型和场景下有效地使用TokenTracker功能。
+这些示例展示了如何在不同模型和场景下有效地使用 TokenTracker 功能。
 
 </details>
 
 ## 数据导出功能
 
-### 概述
+### 概览
 
-LightRAG允许您以各种格式导出知识图谱数据，用于分析、共享和备份目的。系统支持导出实体、关系和关系数据。
+LightRAG 允许您以各种格式导出知识图谱数据，用于分析、共享和备份。系统支持导出实体、关系及关系数据。
 
-### 导出功能
+### 导出函数
 
-#### 基本用法
+<details>
+  <summary> <b> 基础用法 </b></summary>
 
 ```python
-# 基本CSV导出（默认格式）
+# 基础 CSV 导出（默认格式）
 rag.export_data("knowledge_graph.csv")
 
 # 指定任意格式
 rag.export_data("output.xlsx", file_format="excel")
 ```
 
-#### 支持的不同文件格式
+</details>
+
+<details>
+  <summary> <b> 支持的不同文件格式 </b></summary>
 
 ```python
-# 以CSV格式导出数据
+# 以 CSV 格式导出数据
 rag.export_data("graph_data.csv", file_format="csv")
 
-# 导出数据到Excel表格
+# 导出到 Excel 工作表
 rag.export_data("graph_data.xlsx", file_format="excel")
 
-# 以markdown格式导出数据
+# 以 markdown 格式导出数据
 rag.export_data("graph_data.md", file_format="md")
 
-# 导出数据为文本
+# 导出为纯文本
 rag.export_data("graph_data.txt", file_format="txt")
 ```
+</details>
 
-#### 附加选项
+<details>
+  <summary> <b> 附加选项 </b></summary>
 
 在导出中包含向量嵌入（可选）：
 
 ```python
 rag.export_data("complete_data.csv", include_vector_data=True)
 ```
+</details>
 
-### 导出数据包括
+### 导出中包含的数据
 
-所有导出包括：
+所有导出均包含：
 
 * 实体信息（名称、ID、元数据）
-* 关系数据（实体之间的连接）
+* 关系数据（实体间的连接）
 * 来自向量数据库的关系信息
 
 ## 缓存
@@ -1447,53 +1624,79 @@ rag.export_data("complete_data.csv", include_vector_data=True)
 <details>
   <summary> <b>清除缓存</b> </summary>
 
-您可以使用不同模式清除LLM响应缓存：
+您可以使用不同的模式清除 LLM 响应缓存：
 
 ```python
 # 清除所有缓存
 await rag.aclear_cache()
 
-# 清除本地模式缓存
+# 清除 local 模式缓存
 await rag.aclear_cache(modes=["local"])
 
-# 清除提取缓存
+# 清除提取（extraction）缓存
 await rag.aclear_cache(modes=["default"])
 
-# 清除多个模式
+# 清除多个模式的缓存
 await rag.aclear_cache(modes=["local", "global", "hybrid"])
 
 # 同步版本
 rag.clear_cache(modes=["local"])
 ```
 
-有效的模式包括：
+有效模式包括：
 
 - `"default"`：提取缓存
 - `"naive"`：朴素搜索缓存
 - `"local"`：本地搜索缓存
 - `"global"`：全局搜索缓存
 - `"hybrid"`：混合搜索缓存
-- `"mix"`：混合搜索缓存
+- `"mix"`：混合（Mix）搜索缓存
 
 </details>
 
+## 故障排除
+
+### 常见初始化错误
+
+如果您在使用 LightRAG 时遇到以下错误：
+
+1. **`AttributeError: __aenter__`**
+   - **原因**：存储后端未初始化
+   - **解决方案**：在创建 LightRAG 实例后调用 `await rag.initialize_storages()`
+
+2. **`KeyError: 'history_messages'`**
+   - **原因**：流水线状态未初始化
+   - **解决方案**：在创建 LightRAG 实例后调用 `await rag.initialize_storages()`
+
+3. **两个错误相继出现**
+   - **原因**：两个初始化方法都未被调用
+   - **解决方案**：始终遵循以下模式：
+   ```python
+   rag = LightRAG(...)
+   await rag.initialize_storages()
+   ```
+
+### 模型切换问题
+
+在不同的嵌入模型（embedding models）之间切换时，您必须清空数据目录以避免错误。如果您希望保留 LLM 缓存，唯一可以保留的文件是 `kv_store_llm_response_cache.json`。
+
 ## LightRAG API
 
-LightRAG服务器旨在提供Web UI和API支持。**有关LightRAG服务器的更多信息，请参阅[LightRAG服务器](./lightrag/api/README.md)。**
+LightRAG 服务器旨在提供 Web UI 和 API 支持。**有关 LightRAG 服务器的更多信息，请参考 [LightRAG Server](./lightrag/api/README.md)。**
 
-## 知识图谱可视化
+## 图谱可视化
 
-LightRAG服务器提供全面的知识图谱可视化功能。它支持各种重力布局、节点查询、子图过滤等。**有关LightRAG服务器的更多信息，请参阅[LightRAG服务器](./lightrag/api/README.md)。**
+LightRAG 服务器提供了全面的知识图谱可视化功能。它支持各种重力布局、节点查询、子图过滤等。**有关 LightRAG 服务器的更多信息，请参考 [LightRAG Server](./lightrag/api/README.md)。**
 
 ![iShot_2025-03-23_12.40.08](./README.assets/iShot_2025-03-23_12.40.08.png)
 
 ## Langfuse 可观测性集成
 
-Langfuse 为 OpenAI 客户端提供了直接替代方案，可自动跟踪所有 LLM 交互，使开发者能够在无需修改代码的情况下监控、调试和优化其 RAG 系统。
+Langfuse 提供了一个可以直接替换 OpenAI 客户端的方案，自动跟踪所有 LLM 交互，使开发者能够在不更改代码的情况下监控、调试和优化其 RAG 系统。
 
-### 安装 Langfuse 可选依赖
+### 安装可观测性选项
 
-```
+```bash
 pip install lightrag-hku
 pip install lightrag-hku[observability]
 
@@ -1506,69 +1709,69 @@ pip install -e ".[observability]"
 
 修改 .env 文件：
 
-```
-## Langfuse 可观测性（可选）
-# LLM 可观测性和追踪平台
-# 安装命令: pip install lightrag-hku[observability]
-# 注册地址: https://cloud.langfuse.com 或自托管部署
+```bash
+## Langfuse Observability (Optional)
+# LLM observability and tracing platform
+# Install with: pip install lightrag-hku[observability]
+# Sign up at: https://cloud.langfuse.com or self-host
 LANGFUSE_SECRET_KEY=""
 LANGFUSE_PUBLIC_KEY=""
-LANGFUSE_HOST="https://cloud.langfuse.com"  # 或您的自托管实例地址
+LANGFUSE_HOST="https://cloud.langfuse.com"  # 或您的自托管实例
 LANGFUSE_ENABLE_TRACE=true
 ```
 
-### Langfuse 使用说明
+### Langfuse 用法
 
 安装并配置完成后，Langfuse 会自动追踪所有 OpenAI LLM 调用。Langfuse 仪表板功能包括：
 
-- **追踪**：查看完整的 LLM 调用链
-- **分析**：Token 使用量、延迟、成本指标
-- **调试**：检查提示词和响应内容
-- **评估**：比较模型输出结果
-- **监控**：实时告警功能
+- **追踪（Tracing）**：查看完整的 LLM 调用链
+- **分析（Analytics）**：Token 使用情况、延迟、成本指标
+- **调试（Debugging）**：检查提示词和响应
+- **评估（Evaluation）**：比较模型输出
+- **监控（Monitoring）**：实时告警
 
-### 重要提示
+### 重要通知
 
-**注意**：LightRAG 目前仅把 OpenAI 兼容的 API 调用接入了 Langfuse。Ollama、Azure 和 AWS Bedrock 等 API 还无法使用 Langfuse 的可观测性功能。
+**注意**：LightRAG 目前仅将 OpenAI 兼容的 API 调用与 Langfuse 集成。Ollama、Azure 和 AWS Bedrock 等 API 尚不支持 Langfuse 可观测性。
 
-## RAGAS评估
+## 基于 RAGAS 的评估
 
-**RAGAS**（Retrieval Augmented Generation Assessment，检索增强生成评估）是一个使用LLM对RAG系统进行无参考评估的框架。我们提供了基于RAGAS的评估脚本。详细信息请参阅[基于RAGAS的评估框架](lightrag/evaluation/README.md)。
+**RAGAS** (Retrieval Augmented Generation Assessment) 是一个使用 LLM 对 RAG 系统进行无参考评估的框架。项目中包含一个基于 RAGAS 的评估脚本。有关详细信息，请参考 [基于 RAGAS 的评估框架](lightrag/evaluation/README_EVALUASTION_RAGAS.md)。
 
 ## 评估
 
 ### 数据集
 
-LightRAG使用的数据集可以从[TommyChien/UltraDomain](https://huggingface.co/datasets/TommyChien/UltraDomain)下载。
+LightRAG 中使用的数据集可以从 [TommyChien/UltraDomain](https://huggingface.co/datasets/TommyChien/UltraDomain) 下载。
 
 ### 生成查询
 
-LightRAG使用以下提示生成高级查询，相应的代码在`example/generate_query.py`中。
+LightRAG 使用以下提示（prompt）生成高层级查询，相应代码位于 `examples/generate_query.py`。
 
 <details>
-<summary> 提示 </summary>
+<summary> 提示词 </summary>
 
 ```python
-给定以下数据集描述：
+Given the following description of a dataset:
 
 {description}
 
-请识别5个可能会使用此数据集的潜在用户。对于每个用户，列出他们会使用此数据集执行的5个任务。然后，对于每个（用户，任务）组合，生成5个需要对整个数据集有高级理解的问题。
+Please identify 5 potential users who would engage with this dataset. For each user, list 5 tasks they would perform with this dataset. Then, for each (user, task) combination, generate 5 questions that require a high-level understanding of the entire dataset.
 
-按以下结构输出结果：
-- 用户1：[用户描述]
-    - 任务1：[任务描述]
-        - 问题1：
-        - 问题2：
-        - 问题3：
-        - 问题4：
-        - 问题5：
-    - 任务2：[任务描述]
+Output the results in the following structure:
+- User 1: [user description]
+    - Task 1: [task description]
+        - Question 1:
+        - Question 2:
+        - Question 3:
+        - Question 4:
+        - Question 5:
+    - Task 2: [task description]
         ...
-    - 任务5：[任务描述]
-- 用户2：[用户描述]
+    - Task 5: [task description]
+- User 2: [user description]
     ...
-- 用户5：[用户描述]
+- User 5: [user description]
     ...
 ```
 
@@ -1576,50 +1779,50 @@ LightRAG使用以下提示生成高级查询，相应的代码在`example/genera
 
 ### 批量评估
 
-为了评估两个RAG系统在高级查询上的性能，LightRAG使用以下提示，具体代码可在`example/batch_eval.py`中找到。
+为了在处理高层级查询时评估两个 RAG 系统的性能，LightRAG 使用以下提示词，具体代码见 `reproduce/batch_eval.py`。
 
 <details>
-<summary> 提示 </summary>
+<summary> 提示词 </summary>
 
 ```python
----角色---
-您是一位专家，负责根据三个标准评估同一问题的两个答案：**全面性**、**多样性**和**赋能性**。
----目标---
-您将根据三个标准评估同一问题的两个答案：**全面性**、**多样性**和**赋能性**。
+---Role---
+You are an expert tasked with evaluating two answers to the same question based on three criteria: **Comprehensiveness**, **Diversity**, and **Empowerment**.
+---Goal---
+You will evaluate two answers to the same question based on three criteria: **Comprehensiveness**, **Diversity**, and **Empowerment**.
 
-- **全面性**：答案提供了多少细节来涵盖问题的所有方面和细节？
-- **多样性**：答案在提供关于问题的不同视角和见解方面有多丰富多样？
-- **赋能性**：答案在多大程度上帮助读者理解并对主题做出明智判断？
+- **Comprehensiveness**: How much detail does the answer provide to cover all aspects and details of the question?
+- **Diversity**: How varied and rich is the answer in providing different perspectives and insights on the question?
+- **Empowerment**: How well does the answer help the reader understand and make informed judgments about the topic?
 
-对于每个标准，选择更好的答案（答案1或答案2）并解释原因。然后，根据这三个类别选择总体赢家。
+For each criterion, choose the better answer (either Answer 1 or Answer 2) and explain why. Then, select an overall winner based on these three categories.
 
-这是问题：
+Here is the question:
 {query}
 
-这是两个答案：
+Here are the two answers:
 
-**答案1：**
+**Answer 1:**
 {answer1}
 
-**答案2：**
+**Answer 2:**
 {answer2}
 
-使用上述三个标准评估两个答案，并为每个标准提供详细解释。
+Evaluate both answers using the three criteria listed above and provide detailed explanations for each criterion.
 
-以下列JSON格式输出您的评估：
+Output your evaluation in the following JSON format:
 
 {{
-    "全面性": {{
-        "获胜者": "[答案1或答案2]",
-        "解释": "[在此提供解释]"
+    "Comprehensiveness": {{
+        "Winner": "[Answer 1 or Answer 2]",
+        "Explanation": "[Provide explanation here]"
     }},
-    "赋能性": {{
-        "获胜者": "[答案1或答案2]",
-        "解释": "[在此提供解释]"
+    "Empowerment": {{
+        "Winner": "[Answer 1 or Answer 2]",
+        "Explanation": "[Provide explanation here]"
     }},
-    "总体获胜者": {{
-        "获胜者": "[答案1或答案2]",
-        "解释": "[根据三个标准总结为什么这个答案是总体获胜者]"
+    "Overall Winner": {{
+        "Winner": "[Answer 1 or Answer 2]",
+        "Explanation": "[Summarize why this answer is the overall winner based on the three criteria]"
     }}
 }}
 ```
@@ -1628,24 +1831,24 @@ LightRAG使用以下提示生成高级查询，相应的代码在`example/genera
 
 ### 总体性能表
 
-|                      |**农业**|            |**计算机科学**|            |**法律**|            |**混合**|            |
+||**农业**||**计算机科学**||**法律**||**混合**||
 |----------------------|---------------|------------|------|------------|---------|------------|-------|------------|
-|                      |NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|
+||NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|
 |**全面性**|32.4%|**67.6%**|38.4%|**61.6%**|16.4%|**83.6%**|38.8%|**61.2%**|
 |**多样性**|23.6%|**76.4%**|38.0%|**62.0%**|13.6%|**86.4%**|32.4%|**67.6%**|
 |**赋能性**|32.4%|**67.6%**|38.8%|**61.2%**|16.4%|**83.6%**|42.8%|**57.2%**|
 |**总体**|32.4%|**67.6%**|38.8%|**61.2%**|15.2%|**84.8%**|40.0%|**60.0%**|
-|                      |RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|
+||RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|
 |**全面性**|31.6%|**68.4%**|38.8%|**61.2%**|15.2%|**84.8%**|39.2%|**60.8%**|
 |**多样性**|29.2%|**70.8%**|39.2%|**60.8%**|11.6%|**88.4%**|30.8%|**69.2%**|
 |**赋能性**|31.6%|**68.4%**|36.4%|**63.6%**|15.2%|**84.8%**|42.4%|**57.6%**|
 |**总体**|32.4%|**67.6%**|38.0%|**62.0%**|14.4%|**85.6%**|40.0%|**60.0%**|
-|                      |HyDE|**LightRAG**|HyDE|**LightRAG**|HyDE|**LightRAG**|HyDE|**LightRAG**|
+||HyDE|**LightRAG**|HyDE|**LightRAG**|HyDE|**LightRAG**|HyDE|**LightRAG**|
 |**全面性**|26.0%|**74.0%**|41.6%|**58.4%**|26.8%|**73.2%**|40.4%|**59.6%**|
 |**多样性**|24.0%|**76.0%**|38.8%|**61.2%**|20.0%|**80.0%**|32.4%|**67.6%**|
 |**赋能性**|25.2%|**74.8%**|40.8%|**59.2%**|26.0%|**74.0%**|46.0%|**54.0%**|
 |**总体**|24.8%|**75.2%**|41.6%|**58.4%**|26.4%|**73.6%**|42.4%|**57.6%**|
-|                      |GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|
+||GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|
 |**全面性**|45.6%|**54.4%**|48.4%|**51.6%**|48.4%|**51.6%**|**50.4%**|49.6%|
 |**多样性**|22.8%|**77.2%**|40.8%|**59.2%**|26.4%|**73.6%**|36.0%|**64.0%**|
 |**赋能性**|41.2%|**58.8%**|45.2%|**54.8%**|43.6%|**56.4%**|**50.8%**|49.2%|
@@ -1653,11 +1856,11 @@ LightRAG使用以下提示生成高级查询，相应的代码在`example/genera
 
 ## 复现
 
-所有代码都可以在`./reproduce`目录中找到。
+所有代码均可在 `./reproduce` 目录中找到。
 
-### 步骤0 提取唯一上下文
+### Step-0 提取唯一上下文
 
-首先，我们需要提取数据集中的唯一上下文。
+首先，我们需要提取数据集中的唯一上下文（unique contexts）。
 
 <details>
 <summary> 代码 </summary>
@@ -1668,7 +1871,7 @@ def extract_unique_contexts(input_directory, output_directory):
     os.makedirs(output_directory, exist_ok=True)
 
     jsonl_files = glob.glob(os.path.join(input_directory, '*.jsonl'))
-    print(f"找到{len(jsonl_files)}个JSONL文件。")
+    print(f"Found {len(jsonl_files)} JSONL files.")
 
     for file_path in jsonl_files:
         filename = os.path.basename(file_path)
@@ -1678,7 +1881,7 @@ def extract_unique_contexts(input_directory, output_directory):
 
         unique_contexts_dict = {}
 
-        print(f"处理文件：{filename}")
+        print(f"Processing file: {filename}")
 
         try:
             with open(file_path, 'r', encoding='utf-8') as infile:
@@ -1692,33 +1895,33 @@ def extract_unique_contexts(input_directory, output_directory):
                         if context and context not in unique_contexts_dict:
                             unique_contexts_dict[context] = None
                     except json.JSONDecodeError as e:
-                        print(f"文件{filename}第{line_number}行JSON解码错误：{e}")
+                        print(f"JSON decoding error in file {filename} at line {line_number}: {e}")
         except FileNotFoundError:
-            print(f"未找到文件：{filename}")
+            print(f"File not found: {filename}")
             continue
         except Exception as e:
-            print(f"处理文件{filename}时发生错误：{e}")
+            print(f"An error occurred while processing file {filename}: {e}")
             continue
 
         unique_contexts_list = list(unique_contexts_dict.keys())
-        print(f"文件{filename}中有{len(unique_contexts_list)}个唯一的`context`条目。")
+        print(f"There are {len(unique_contexts_list)} unique `context` entries in the file {filename}.")
 
         try:
             with open(output_path, 'w', encoding='utf-8') as outfile:
                 json.dump(unique_contexts_list, outfile, ensure_ascii=False, indent=4)
-            print(f"唯一的`context`条目已保存到：{output_filename}")
+            print(f"Unique `context` entries have been saved to: {output_filename}")
         except Exception as e:
-            print(f"保存到文件{output_filename}时发生错误：{e}")
+            print(f"An error occurred while saving to the file {output_filename}: {e}")
 
-    print("所有文件已处理完成。")
+    print("All files have been processed.")
 
 ```
 
 </details>
 
-### 步骤1 插入上下文
+### Step-1 插入上下文
 
-对于提取的上下文，我们将它们插入到LightRAG系统中。
+我们将提取出的上下文插入到 LightRAG 系统中。
 
 <details>
 <summary> 代码 </summary>
@@ -1736,17 +1939,17 @@ def insert_text(rag, file_path):
             break
         except Exception as e:
             retries += 1
-            print(f"插入失败，重试（{retries}/{max_retries}），错误：{e}")
+            print(f"Insertion failed, retrying ({retries}/{max_retries}), error: {e}")
             time.sleep(10)
     if retries == max_retries:
-        print("超过最大重试次数后插入失败")
+        print("Insertion failed after exceeding the maximum number of retries")
 ```
 
 </details>
 
-### 步骤2 生成查询
+### Step-2 生成查询
 
-我们从数据集中每个上下文的前半部分和后半部分提取令牌，然后将它们组合为数据集描述以生成查询。
+我们从数据集每个上下文的前半部分和后半部分提取 token，然后将它们组合作为数据集描述来生成查询。
 
 <details>
 <summary> 代码 </summary>
@@ -1769,9 +1972,9 @@ def get_summary(context, tot_tokens=2000):
 
 </details>
 
-### 步骤3 查询
+### Step-3 查询
 
-对于步骤2中生成的查询，我们将提取它们并查询LightRAG。
+对于 Step-2 中生成的查询，我们将提取它们并对 LightRAG 进行查询。
 
 <details>
 <summary> 代码 </summary>
@@ -1790,7 +1993,47 @@ def extract_queries(file_path):
 
 </details>
 
-## Star历史
+## 🔗 相关项目
+
+*生态与扩展*
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/HKUDS/RAG-Anything">
+          <div style="width: 100px; height: 100px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%); border-radius: 15px; border: 1px solid rgba(0, 217, 255, 0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+            <span style="font-size: 32px;">📸</span>
+          </div>
+          <b>RAG-Anything</b><br>
+          <sub>多模态 RAG</sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/HKUDS/VideoRAG">
+          <div style="width: 100px; height: 100px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%); border-radius: 15px; border: 1px solid rgba(0, 217, 255, 0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+            <span style="font-size: 32px;">🎥</span>
+          </div>
+          <b>VideoRAG</b><br>
+          <sub>极端长上下文视频 RAG</sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/HKUDS/MiniRAG">
+          <div style="width: 100px; height: 100px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%); border-radius: 15px; border: 1px solid rgba(0, 217, 255, 0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+            <span style="font-size: 32px;">✨</span>
+          </div>
+          <b>MiniRAG</b><br>
+          <sub>极简 RAG</sub>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+## ⭐ Star 历史
 
 <a href="https://star-history.com/#HKUDS/LightRAG&Date">
  <picture>
@@ -1800,15 +2043,22 @@ def extract_queries(file_path):
  </picture>
 </a>
 
-## 贡献
+## 🤝 贡献
 
-感谢所有贡献者！
+<div align="center">
+  我们感谢所有贡献者做出的宝贵贡献。
+</div>
 
-<a href="https://github.com/HKUDS/LightRAG/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=HKUDS/LightRAG" />
-</a>
+<div align="center">
+  <a href="https://github.com/HKUDS/LightRAG/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=HKUDS/LightRAG" style="border-radius: 15px; box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);" />
+  </a>
+</div>
 
-## 🌟引用
+---
+
+
+## 📖 引用
 
 ```python
 @article{guo2024lightrag,
@@ -1821,4 +2071,31 @@ primaryClass={cs.IR}
 }
 ```
 
-**感谢您对我们工作的关注！**
+---
+
+<div align="center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; padding: 30px; margin: 30px 0;">
+  <div>
+    <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="500">
+  </div>
+  <div style="margin-top: 20px;">
+    <a href="https://github.com/HKUDS/LightRAG" style="text-decoration: none;">
+      <img src="https://img.shields.io/badge/⭐%20在%20GitHub%20上点亮星星-1a1a2e?style=for-the-badge&logo=github&logoColor=white">
+    </a>
+    <a href="https://github.com/HKUDS/LightRAG/issues" style="text-decoration: none;">
+      <img src="https://img.shields.io/badge/🐛%20报告问题-ff6b6b?style=for-the-badge&logo=github&logoColor=white">
+    </a>
+    <a href="https://github.com/HKUDS/LightRAG/discussions" style="text-decoration: none;">
+      <img src="https://img.shields.io/badge/💬%20讨论-4ecdc4?style=for-the-badge&logo=github&logoColor=white">
+    </a>
+  </div>
+</div>
+
+<div align="center">
+  <div style="width: 100%; max-width: 600px; margin: 20px auto; padding: 20px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%); border-radius: 15px; border: 1px solid rgba(0, 217, 255, 0.2);">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+      <span style="font-size: 24px;">⭐</span>
+      <span style="color: #00d9ff; font-size: 18px;">感谢您访问 LightRAG!</span>
+      <span style="font-size: 24px;">⭐</span>
+    </div>
+  </div>
+</div>
