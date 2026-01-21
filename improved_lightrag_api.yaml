@@ -1,0 +1,713 @@
+openapi: 3.1.0
+info:
+  title: LightRAG Knowledge Base API
+  description: |
+    Complete interface for LightRAG knowledge graph and RAG capabilities.
+    Optimized for diverse subject knowledge bases with full parameter control.
+  version: 2.0.0
+servers:
+  - url: 'https://lightrag.t51.it'
+    description: Production LightRAG Server
+
+paths:
+  # ============================================================================
+  # QUERY ENDPOINTS - Core RAG Functionality
+  # ============================================================================
+
+  /query/data:
+    post:
+      operationId: retrieve_rag_data
+      summary: Retrieve structured knowledge graph data and text chunks
+      description: |
+        **Primary tool for retrieving information without LLM generation.**
+
+        Returns structured data: entities, relationships, and text chunks.
+        Use this when you want raw knowledge graph data to process yourself.
+
+        **Query Modes:**
+        - `mix` (Recommended): Combines KG + vector search for best results
+        - `hybrid`: Combines local + global KG search
+        - `local`: Entity-centric retrieval with direct relationships
+        - `global`: Pattern analysis across the entire graph
+        - `naive`: Pure vector search without knowledge graph
+
+        **For diverse subjects:** Use token limits to prevent context overflow!
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  description: The search query
+                  example: "What are the specifications of Abena Wingman?"
+
+                # Query Mode Selection
+                mode:
+                  type: string
+                  default: "mix"
+                  enum: ["mix", "hybrid", "local", "global", "naive"]
+                  description: |
+                    - mix: KG + vector (recommended for diverse subjects)
+                    - hybrid: Local + global KG
+                    - local: Entity-focused
+                    - global: Pattern-focused
+                    - naive: Vector-only
+
+                # Retrieval Control
+                top_k:
+                  type: integer
+                  default: 40
+                  minimum: 1
+                  maximum: 200
+                  description: Number of top entities/relationships to retrieve
+
+                chunk_top_k:
+                  type: integer
+                  default: 20
+                  minimum: 1
+                  maximum: 100
+                  description: Number of text chunks to retrieve after reranking
+
+                # Token Budget Control (IMPORTANT for diverse subjects!)
+                max_entity_tokens:
+                  type: integer
+                  default: 6000
+                  description: Maximum tokens for entity context
+
+                max_relation_tokens:
+                  type: integer
+                  default: 8000
+                  description: Maximum tokens for relationship context
+
+                max_total_tokens:
+                  type: integer
+                  default: 30000
+                  description: Overall token budget for entire context
+
+                # Advanced Options
+                enable_rerank:
+                  type: boolean
+                  default: true
+                  description: Enable semantic reranking of retrieved chunks
+
+                include_references:
+                  type: boolean
+                  default: false
+                  description: Include file path citations in response
+
+                # Manual Keyword Override (for better control)
+                hl_keywords:
+                  type: array
+                  items:
+                    type: string
+                  description: High-level keywords (for global/hybrid/mix modes)
+                  example: ["medical devices", "incontinence products"]
+
+                ll_keywords:
+                  type: array
+                  items:
+                    type: string
+                  description: Low-level keywords (for local/hybrid/mix modes)
+                  example: ["Wingman", "absorption capacity", "size"]
+
+      responses:
+        '200':
+          description: Successful data retrieval
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [success, failure]
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      entities:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            entity_name:
+                              type: string
+                            entity_type:
+                              type: string
+                            description:
+                              type: string
+                            source_id:
+                              type: string
+                            file_path:
+                              type: string
+                            reference_id:
+                              type: string
+                      relationships:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            src_id:
+                              type: string
+                            tgt_id:
+                              type: string
+                            description:
+                              type: string
+                            keywords:
+                              type: string
+                            weight:
+                              type: number
+                            source_id:
+                              type: string
+                      chunks:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            content:
+                              type: string
+                            file_path:
+                              type: string
+                            chunk_id:
+                              type: string
+                      references:
+                        type: array
+                        items:
+                          type: object
+                  metadata:
+                    type: object
+                    description: Query execution metadata and statistics
+        '400':
+          description: Invalid request parameters
+        '500':
+          description: Server error
+
+  /query:
+    post:
+      operationId: query_with_llm_response
+      summary: Query with LLM-generated answer
+      description: |
+        **Complete RAG pipeline: retrieval + LLM generation.**
+
+        Returns both structured data AND an LLM-generated response.
+        Use this when you want a natural language answer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                mode:
+                  type: string
+                  default: "mix"
+                  enum: ["mix", "hybrid", "local", "global", "naive"]
+                top_k:
+                  type: integer
+                  default: 40
+                chunk_top_k:
+                  type: integer
+                  default: 20
+                max_entity_tokens:
+                  type: integer
+                  default: 6000
+                max_relation_tokens:
+                  type: integer
+                  default: 8000
+                max_total_tokens:
+                  type: integer
+                  default: 30000
+                enable_rerank:
+                  type: boolean
+                  default: true
+                include_references:
+                  type: boolean
+                  default: false
+                response_type:
+                  type: string
+                  default: "Multiple Paragraphs"
+                  description: Hint for LLM response format
+                only_need_context:
+                  type: boolean
+                  default: false
+                  description: Skip LLM generation, return only retrieved context
+                hl_keywords:
+                  type: array
+                  items:
+                    type: string
+                ll_keywords:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Successful query with LLM response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    description: Same structure as /query/data
+                  llm_response:
+                    type: object
+                    properties:
+                      content:
+                        type: string
+                        description: Generated natural language answer
+                  metadata:
+                    type: object
+
+  /query/stream:
+    post:
+      operationId: query_with_streaming
+      summary: Streaming query with progressive LLM response
+      description: |
+        **Streaming version of /query for better UX.**
+
+        Returns NDJSON stream with progressive chunks of the LLM response.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                mode:
+                  type: string
+                  default: "mix"
+                  enum: ["mix", "hybrid", "local", "global", "naive"]
+                top_k:
+                  type: integer
+                  default: 40
+                chunk_top_k:
+                  type: integer
+                  default: 20
+                max_entity_tokens:
+                  type: integer
+                  default: 6000
+                max_relation_tokens:
+                  type: integer
+                  default: 8000
+                max_total_tokens:
+                  type: integer
+                  default: 30000
+                include_references:
+                  type: boolean
+                  default: false
+      responses:
+        '200':
+          description: Streaming response (NDJSON format)
+          content:
+            application/x-ndjson:
+              schema:
+                type: object
+
+  # ============================================================================
+  # GRAPH DISCOVERY ENDPOINTS - Essential for Diverse Subjects!
+  # ============================================================================
+
+  /graph/label/list:
+    get:
+      operationId: list_all_entities
+      summary: List all entity labels in the knowledge graph
+      description: |
+        **Essential for discovering what's in your diverse knowledge base.**
+
+        Returns all unique entity names. Use this to:
+        - Explore what topics/entities exist
+        - Find starting points for graph traversal
+        - Identify entities for cleanup or merging
+      responses:
+        '200':
+          description: List of all entity labels
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  labels:
+                    type: array
+                    items:
+                      type: string
+                    example: ["Wingman", "Abena", "Neural Networks", "Python"]
+
+  /graph/label/popular:
+    get:
+      operationId: get_popular_entities
+      summary: Get most connected entities (hubs in the knowledge graph)
+      description: |
+        **Find the most important entities in your diverse knowledge base.**
+
+        Returns entities sorted by connectivity (degree).
+        These are often key concepts that link different subjects.
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 300
+            minimum: 1
+            maximum: 1000
+          description: Maximum number of entities to return
+      responses:
+        '200':
+          description: Popular entity labels sorted by connectivity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  labels:
+                    type: array
+                    items:
+                      type: string
+
+  /graph/label/search:
+    get:
+      operationId: search_entity_labels
+      summary: Fuzzy search for entity names
+      description: |
+        **Find entities by partial name match.**
+
+        Useful when you're not sure of the exact entity name.
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Search query for entity names
+          example: "wing"
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+            minimum: 1
+            maximum: 200
+      responses:
+        '200':
+          description: Matching entity labels
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  labels:
+                    type: array
+                    items:
+                      type: string
+
+  /graphs:
+    get:
+      operationId: get_knowledge_graph_subgraph
+      summary: Retrieve connected subgraph starting from an entity
+      description: |
+        **Explore relationships and connections around a specific entity.**
+
+        Use this to understand:
+        - What is directly related to an entity
+        - Multi-hop connections and paths
+        - Local graph structure
+      parameters:
+        - name: label
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Starting entity label
+          example: "Wingman"
+
+        - name: max_depth
+          in: query
+          schema:
+            type: integer
+            default: 3
+            minimum: 1
+            maximum: 5
+          description: |
+            Traversal depth (number of relationship hops).
+            - 1: Direct neighbors only
+            - 2: Neighbors + their neighbors (recommended for API context limits)
+            - 3+: Deeper exploration (may return large graphs)
+
+        - name: max_nodes
+          in: query
+          schema:
+            type: integer
+            default: 1000
+            minimum: 10
+            maximum: 5000
+          description: Maximum nodes to return (prevents overwhelming responses)
+
+      responses:
+        '200':
+          description: Subgraph structure
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nodes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        label:
+                          type: string
+                        properties:
+                          type: object
+                  edges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        source:
+                          type: string
+                        target:
+                          type: string
+                        relationship:
+                          type: string
+                        properties:
+                          type: object
+
+  # ============================================================================
+  # GRAPH MANAGEMENT ENDPOINTS - Quality Control for Diverse Data
+  # ============================================================================
+
+  /graph/entity/exists:
+    get:
+      operationId: check_entity_exists
+      summary: Check if an entity exists in the knowledge graph
+      description: Verify entity existence before operations
+      parameters:
+        - name: entity_name
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Entity existence status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  exists:
+                    type: boolean
+                  entity_name:
+                    type: string
+
+  /graph/entity/create:
+    post:
+      operationId: create_entity
+      summary: Create a new entity in the knowledge graph
+      description: |
+        **Manually add entities to your knowledge base.**
+
+        Useful for:
+        - Adding missing entities discovered during queries
+        - Correcting entity extraction errors
+        - Enriching the knowledge graph
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - entity_name
+                - entity_type
+                - description
+              properties:
+                entity_name:
+                  type: string
+                  example: "Wingman Pro"
+                entity_type:
+                  type: string
+                  example: "Product"
+                description:
+                  type: string
+                  example: "Premium incontinence product with enhanced absorption"
+                source_id:
+                  type: string
+                  description: Reference to source chunk
+      responses:
+        '200':
+          description: Entity created successfully
+        '409':
+          description: Entity already exists
+
+  /graph/entity/edit:
+    post:
+      operationId: edit_entity
+      summary: Update entity properties or merge entities
+      description: |
+        **Maintain knowledge graph quality with diverse subjects.**
+
+        Operations:
+        - Update entity description or type
+        - Rename entity
+        - Merge duplicate/misspelled entities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - entity_name
+              properties:
+                entity_name:
+                  type: string
+                  description: Current entity name
+                new_entity_name:
+                  type: string
+                  description: New name (for renaming)
+                entity_type:
+                  type: string
+                  description: New type
+                description:
+                  type: string
+                  description: New description
+                merge_with:
+                  type: string
+                  description: Entity to merge with (combines relationships)
+      responses:
+        '200':
+          description: Entity updated successfully
+
+  /graph/entities/merge:
+    post:
+      operationId: merge_entities
+      summary: Merge multiple entities into one
+      description: |
+        **Critical for cleaning up diverse subject knowledge bases.**
+
+        Consolidates duplicate entities that may have been created
+        with slight variations in naming or from different documents.
+        All relationships are preserved and transferred to the target entity.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - source_entities
+                - target_entity
+              properties:
+                source_entities:
+                  type: array
+                  items:
+                    type: string
+                  description: Entities to merge (will be deleted)
+                  example: ["wingman", "Wingman product", "WINGMAN"]
+                target_entity:
+                  type: string
+                  description: Target entity (will receive all relationships)
+                  example: "Wingman"
+      responses:
+        '200':
+          description: Entities merged successfully
+
+  /graph/relation/create:
+    post:
+      operationId: create_relationship
+      summary: Create a new relationship between entities
+      description: Manually add relationships to connect knowledge
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - src_id
+                - tgt_id
+                - description
+              properties:
+                src_id:
+                  type: string
+                  description: Source entity name
+                tgt_id:
+                  type: string
+                  description: Target entity name
+                description:
+                  type: string
+                  description: Relationship description
+                  example: "is manufactured by"
+                keywords:
+                  type: string
+                  description: Related keywords
+                weight:
+                  type: number
+                  description: Relationship strength (0.0-1.0)
+                  default: 1.0
+      responses:
+        '200':
+          description: Relationship created successfully
+
+  /graph/relation/edit:
+    post:
+      operationId: edit_relationship
+      summary: Update relationship properties
+      description: Modify existing relationships
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - src_id
+                - tgt_id
+              properties:
+                src_id:
+                  type: string
+                tgt_id:
+                  type: string
+                description:
+                  type: string
+                keywords:
+                  type: string
+                weight:
+                  type: number
+      responses:
+        '200':
+          description: Relationship updated successfully
+
+# ============================================================================
+# SECURITY
+# ============================================================================
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key for authentication
+
+security:
+  - ApiKeyAuth: []
