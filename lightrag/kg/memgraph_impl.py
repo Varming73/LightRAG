@@ -8,7 +8,7 @@ import configparser
 from ..utils import logger
 from ..base import BaseGraphStorage
 from ..types import KnowledgeGraph, KnowledgeGraphNode, KnowledgeGraphEdge
-from ..kg.shared_storage import get_data_init_lock, get_graph_db_lock
+from ..kg.shared_storage import get_data_init_lock
 import pipmaster as pm
 
 if not pm.is_installed("neo4j"):
@@ -36,6 +36,7 @@ class MemgraphStorage(BaseGraphStorage):
     def __init__(self, namespace, global_config, embedding_func, workspace=None):
         # Priority: 1) MEMGRAPH_WORKSPACE env 2) user arg 3) default 'base'
         memgraph_workspace = os.environ.get("MEMGRAPH_WORKSPACE")
+        original_workspace = workspace  # Save original value for logging
         if memgraph_workspace and memgraph_workspace.strip():
             workspace = memgraph_workspace
 
@@ -48,6 +49,13 @@ class MemgraphStorage(BaseGraphStorage):
             global_config=global_config,
             embedding_func=embedding_func,
         )
+
+        # Log after super().__init__() to ensure self.workspace is initialized
+        if memgraph_workspace and memgraph_workspace.strip():
+            logger.info(
+                f"Using MEMGRAPH_WORKSPACE environment variable: '{memgraph_workspace}' (overriding '{original_workspace}/{namespace}')"
+            )
+
         self._driver = None
 
     def _get_workspace_label(self) -> str:
@@ -101,10 +109,9 @@ class MemgraphStorage(BaseGraphStorage):
                 raise
 
     async def finalize(self):
-        async with get_graph_db_lock():
-            if self._driver is not None:
-                await self._driver.close()
-                self._driver = None
+        if self._driver is not None:
+            await self._driver.close()
+            self._driver = None
 
     async def __aexit__(self, exc_type, exc, tb):
         await self.finalize()
@@ -306,7 +313,7 @@ class MemgraphStorage(BaseGraphStorage):
 
     async def get_all_labels(self) -> list[str]:
         """
-        Get all existing node labels in the database
+        Get all existing node labels(entity names) in the database
         Returns:
             ["Person", "Company", ...]  # Alphabetically sorted label list
 
@@ -762,22 +769,21 @@ class MemgraphStorage(BaseGraphStorage):
             raise RuntimeError(
                 "Memgraph driver is not initialized. Call 'await initialize()' first."
             )
-        async with get_graph_db_lock():
-            try:
-                async with self._driver.session(database=self._DATABASE) as session:
-                    workspace_label = self._get_workspace_label()
-                    query = f"MATCH (n:`{workspace_label}`) DETACH DELETE n"
-                    result = await session.run(query)
-                    await result.consume()
-                    logger.info(
-                        f"[{self.workspace}] Dropped workspace {workspace_label} from Memgraph database {self._DATABASE}"
-                    )
-                    return {"status": "success", "message": "workspace data dropped"}
-            except Exception as e:
-                logger.error(
-                    f"[{self.workspace}] Error dropping workspace {workspace_label} from Memgraph database {self._DATABASE}: {e}"
+        try:
+            async with self._driver.session(database=self._DATABASE) as session:
+                workspace_label = self._get_workspace_label()
+                query = f"MATCH (n:`{workspace_label}`) DETACH DELETE n"
+                result = await session.run(query)
+                await result.consume()
+                logger.info(
+                    f"[{self.workspace}] Dropped workspace {workspace_label} from Memgraph database {self._DATABASE}"
                 )
-                return {"status": "error", "message": str(e)}
+                return {"status": "success", "message": "workspace data dropped"}
+        except Exception as e:
+            logger.error(
+                f"[{self.workspace}] Error dropping workspace {workspace_label} from Memgraph database {self._DATABASE}: {e}"
+            )
+            return {"status": "error", "message": str(e)}
 
     async def edge_degree(self, src_id: str, tgt_id: str) -> int:
         """Get the total degree (sum of relationships) of two nodes.
@@ -1040,10 +1046,10 @@ class MemgraphStorage(BaseGraphStorage):
         """Get popular labels by node degree (most connected entities)
 
         Args:
-            limit: Maximum number of labels to return
+            limit: Maximum number of labels(entity names) to return
 
         Returns:
-            List of labels sorted by degree (highest first)
+            List of labels(entity names) sorted by degree (highest first)
         """
         if self._driver is None:
             raise RuntimeError(
@@ -1082,14 +1088,14 @@ class MemgraphStorage(BaseGraphStorage):
             return []
 
     async def search_labels(self, query: str, limit: int = 50) -> list[str]:
-        """Search labels with fuzzy matching
+        """Search labels(entity names) with fuzzy matching
 
         Args:
             query: Search query string
             limit: Maximum number of results to return
 
         Returns:
-            List of matching labels sorted by relevance
+            List of matching labels(entity names) sorted by relevance
         """
         if self._driver is None:
             raise RuntimeError(
